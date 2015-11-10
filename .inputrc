@@ -1,0 +1,12 @@
+set completion-ignore-case on
+set bell-style none
+set editing-mode vi
+set keymap vi
+
+"\C-p": previous-history
+"\C-n": next-history
+"\C-f": forward-char
+"\C-b": backward-char
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+"\C-l": clear-screen

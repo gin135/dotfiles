@@ -1,0 +1,216 @@
+# user
+snippet add
+alias   aa
+abbr    +=
+options word
+	+= 
+
+snippet sub
+alias   sa
+abbr    -=
+options word
+	-= 
+
+snippet mult
+alias   ma
+abbr    *=
+options word
+	*= 
+
+snippet div
+alias   da
+abbr    /=
+options word
+	/= 
+
+snippet char
+abbr    char var[size];
+options head
+	char ${1:var}[${2:size}];${0}
+
+# header
+snippet include
+alias   inc
+abbr    #include <library>
+options head
+	#include <${1:stdio}.h>${0}
+
+snippet include2
+alias   inc2
+abbr    #include "user_library"
+options head
+	#include "${1:#:user}.h"${0}
+
+snippet define
+alias   def
+abbr    #define MACRO
+options head
+	#define ${0}
+
+# main function.
+snippet main
+options head
+    int
+    main(${1:int argc, char const* argv[]})
+	{
+		${0}
+
+		return (0);
+	}
+
+snippet mainv
+options head
+    int
+    main(void)
+	{
+		${0}
+
+		return 0;
+	}
+
+snippet exit
+    exit(${1:#:status_code});${0}
+
+snippet if
+abbr    if () {}
+    if (${1:#:condition})
+	{
+		${2:TARGET}
+	}
+
+snippet else
+abbr    else () {}
+    else
+	{
+		${0:TARGET}
+	}
+
+snippet elseif
+alias   elif
+abbr    else if () {}
+    else if (${1:#:condition})
+	{
+		${0:TARGET}
+	}
+
+snippet ifelse
+alias   ifel
+abbr    if () {} else {}
+    if (${1:#:condition})
+	{
+		${2:TARGET}
+	}
+    else
+	{
+		${3:TARGET}
+	}
+snippet for
+abbr    for () {}
+    for (${1:i} = ${2:#:init}; ${3:$1} ${4:<} ${5:#:condition}; ${6:$1}${7:++})
+	{
+		${0:TARGET}
+	}
+
+snippet while
+abbr    while () {}
+    while (${1:#:condition})
+	{
+		${0:TARGET}
+	}
+
+snippet do_while
+alias   do
+    do
+	{
+		${0:TARGET:code}
+	}
+	while (${1:#:condition});
+
+snippet     switch
+abbr        switch () {}
+    switch (${1:#:var})
+	{
+		case ${2:#:val}:
+			${0:TARGET}
+			break;
+	}
+
+snippet case
+abbr    case {}:
+	case ${1:#val}:
+		${0:TARGET}
+		break;
+
+snippet function
+alias   func
+abbr    func() {}
+    ${1:void}
+    ${2:#:func_name}(${3:#:args})
+	{
+		${0:TARGET}
+	}
+
+snippet perror
+alias   pe
+    perror(${1});${0}
+
+snippet printf
+alias   pf
+    printf("${1}"${2});${0}
+
+snippet puts
+    puts("${1}");${0}
+
+snippet scanf
+alias   sf
+    scanf("${1:%d}", &${2});${0}
+
+snippet sscanf
+alias   ssf
+abbr    sscanf(source, "%d", &var)
+    sscanf(${1:source}, "%${2:d}", &${3:var});${0}
+
+snippet fscanf
+    fscanf(${1:%d}", &${2});${0}
+
+snippet fgets
+alias   fg
+abbr fgets(var, length, file);
+    fgets(${1:var}, sizeof($1), ${2:stdin});${0}
+
+snippet return
+alias   ret
+abbr    return(var);
+options head
+	return(${1:0});${0}
+
+snippet leap_year
+alias   uruu, leap
+	int
+	leap_year(int year)
+	{
+		if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	${0}
+
+snippet comment
+alias   co, /*
+	/* ${0} */
+
+snippet header_comment
+alias   header
+options head
+	/*******************************************************************************
+	* ${1:title} -- ${2:abstraction}
+	*
+	* Author:   ${3:author}
+	*
+	* Usage:    ${4:usage}
+	*
+	*******************************************************************************/
+

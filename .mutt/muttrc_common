@@ -1,0 +1,248 @@
+#~~~~~~~~~~Key_Bind~~~~~~~~~~#{{{
+#メールビューでの操作をvi風にする
+bind pager j next-line
+bind pager k previous-line
+bind pager "\Cn" next-entry
+bind pager "\Cp" previous-entry
+bind index "\Cn" next-new
+bind index "\Cp" previous-new
+bind pager "\Cd" half-down
+bind pager "\Cu" half-up
+bind pager "\Cf" next-page
+bind pager "\Cb" previous-page
+bind index "\Cd" half-down
+bind index "\Cu" half-up
+bind index "\Cf" next-page
+bind index "\Cb" previous-page
+bind index "\Cn" next-thread
+bind index "\Cp" previous-thread
+bind index "[" previous-new-then-unread
+bind index "]" next-new-then-unread
+
+bind index d half-down
+bind index b half-up
+bind pager d half-down
+bind pager b half-up
+
+bind index f flag-message
+bind index F forward-message
+bind index D delete-message
+bind pager f flag-message
+bind pager F forward-message
+bind pager D delete-message
+bind index P print-message
+bind pager P print-message
+bind index r reply
+bind pager r reply
+bind index R group-reply
+bind pager R group-reply
+
+bind index gg first-entry
+bind index G last-entry
+bind pager gg top
+bind pager G bottom
+
+bind index / search
+bind index ? search-reverse
+bind index n search-next
+bind index N search-opposite
+bind pager / search
+bind pager ? search-reverse
+bind pager n search-next
+bind pager N search-opposite
+
+#Hでhelp
+bind index H help
+bind pager H help
+#bind index "\Ch" help #BSの制御コードが優先されてしまう
+#bind pager "\Ch" help #BSの制御コードが優先されてしまう
+
+#<C-l>でメール問い合わせ
+bind index "\Cl" imap-fetch-mail
+
+#wでメールボックス一覧を表示
+macro index w c?
+
+
+#}}}
+
+
+
+
+
+#~~~~~~~~~~基本設定~~~~~~~~~~#{{{
+#使用するエディタ
+set editor="vim %s -f"
+
+#メール一覧においてスレッド表示をする
+set sort=threads
+
+#最後までスクロールしても次のメッセージに移動しない
+set pager_stop=yes
+
+#メール送信次にヘッダからBCCの表示を削除する
+set write_bcc=no
+
+#メール作成時にsubjectを空にした場合，作成を中断する
+set abort_nosubject=yes
+#メッセージ本文編集時に変更がなかった場合，作成を破棄する
+set abort_unmodified=yes
+
+#メッセージ中のANSIカラーコードを解釈しない(セキュリティ上しない方が良い)
+set allow_ansi=no
+
+#現在のエントリを示すのに行全体をハイライトする(カーソルを使わない)
+set arrow_cursor=no
+
+#メッセージ編集前ににCC, BCCの送信先を確認しない
+set askcc=no
+set askbcc=no
+
+#エラー発生時，メール受信時にbeep音を鳴らさない
+set beep=no
+set beep_new=no
+
+#POP, IMAP使用時のコネクションタイムアウト(sec)
+set connect_timeout=60
+
+#メールボックスを閉じる際，削除マークされたメッセージを削除するかどうか確認する
+set delete=ask-yes
+
+#メッセージ編集時にヘッダも編集できるようにする
+set edit_headers=yes
+
+#Muttがメールをチェックする間隔(sec)
+set mail_check=60
+
+#スクロール時に画面を1行ずつスクロールする
+#set menu_scroll=yes
+
+#画面に情報を表示する際に一時停止する時間(sec)
+set sleep_time=0
+
+#exit時に本当にMuttを終了するかどうか確認する
+#set quit=ask-yes
+
+#Subjectが無題のとき、確認する
+set abort_nosubject=ask-yes
+
+#}}}
+
+
+
+
+
+#~~~~~~~~~~日本語を使うために必要な設定~~~~~~~~~~#{{{
+#表示・作成時の文字セット
+set charset="utf-8"
+#送信時の文字セットの優先順位
+set send_charset="us-ascii:iso-2022-jp:utf-8"
+#添付ファイル(txt)の文字セット(jp_patch)
+#set file_charset="iso-2022-jp:euc-jp:shift_jis:utf-8"
+
+#文字エンコードが指定されていないメールを読めるようにする(jp_patch)
+#set strict_mime=no
+set assumed_charset="iso-2022-jp:euc-jp:shift_jis:utf-8"
+
+#日本語でボディの検索をおこなえるようにする
+set thorough_search=yes
+
+#機種依存文字があるとき，その文字以降の文字化けを防ぐ(jp_patch)
+#set sanitize_ja_chars=yes
+
+#添付ファイルの名前が日本語の場合でも復号化をおこなう
+set rfc2047_parameters=yes
+
+#メッセージ転送の不具合回避
+set forward_decode=yes
+set mime_forward_decode=no
+
+#メールヘッダをエディタで編集できるようにする
+set edit_headers=yes
+
+#}}}
+
+
+#~~~~~~~~~~日本語回りの動作に関する設定~~~~~~~~~~#{{{
+#日本語で書かれたtext/enriched, text/htmlメールを読めるようにする
+#auto_view text/enriched text/html #htmlメールは読めなくてもいいかも
+
+#}}}
+
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+
+#~~~~~~~~~~MTAの指定~~~~~~~~~~#{{{
+#set sendmail="/usr/sbin/exim"
+
+#}}}
+
+#~~~~~~~~~~ハイライト~~~~~~~~~~#{{{
+#メールヘッダ
+color header brightgreen black "^Date:"
+color header brightyellow black "^Subject:"
+color header brightred black "^From:"
+color header brightcyan black "^To:"
+color header cyan black "^Cc:"
+color header magenta black "^User-Agent"
+color header magenta black "^X-Mailer"
+
+#本文
+color hdrdefault cyan default
+color search black yellow
+color normal white black
+color message white black
+color quoted magenta black
+color signature cyan black
+color attachment black green
+color tree red black
+color indicator black cyan
+color status white blue
+color tilde blue black
+#URLとメールアドレスをハイライト
+color body blue black "(ftp|http)://[^ ]+"
+color body blue black "[-a-zA-Z0-9_.]+@[-a-zA-Z0-9_.]+"
+
+
+#}}}
+
+
+#~~~~~~~~~~IMAPの設定~~~~~~~~~~#{{{
+#IMAPでの設定
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+#新着メールの問い合わせ間隔
+set mail_check =90
+set timeout=15
+
+
+#IMAPでのディレクトリ設定
+set spoolfile="imaps://imap.gmail.com/INBOX"
+set folder="imaps://imap.gmail.com"
+#set trash="=Trash"
+set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
+#set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set read_inc=100
+set header_cache="~/.mutt/cache/headers/"
+set message_cachedir="~/.mutt/cache/bodies/"
+
+
+#}}}
+
+
+
+#~~~~~~~~~~ディレクトリの設定~~~~~~~~~~#{{{
+##Maildirフォーマットを使用する
+#set mbox_type=Maildir
+#    set spoolfile="~/Maildir"
+#    set folder="~/Maildir"
+#    set mbox="+mbox"
+#    set postponed="+postponed"
+#    set record="+outbox"
+#    set tmpdir="+tmp"
+#}}}
+###IMAP使うのでいらないかも
+

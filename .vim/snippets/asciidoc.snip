@@ -1,0 +1,203 @@
+snippet header
+alias   head
+options head
+	{:title "${1:article_title}"
+	 :layout :post
+	 :tags ["${2:tag1}", "${3:tag2}"]
+	 toc false
+	}
+	${0}
+
+snippet toc
+abbr    toc::[]
+options head
+	toc::[]${0}
+
+snippet image
+alias   img
+abbr    ![Image n](/img/file)
+	![Image ${1:n}](/img/${2:file_name})${0}
+
+snippet hline
+alias   hl
+abbr    ''''
+options head
+	''''
+	${0}
+
+snippet title
+alias   ti
+abbr    = title
+options head
+	= ${1:#:title_text}
+	${0}
+
+snippet section
+alias   se
+abbr    == section
+options head
+	== ${1:#:section_text}
+	${0}
+
+snippet subsection
+alias   sse
+abbr    === subsection
+options head
+	=== ${1:#:subsection_text}
+	${0}
+
+snippet paragraph
+alias   pg
+abbr    ==== paragraph
+options head
+	==== ${1:#:paragraph_text}
+	${0}
+
+snippet subparagraph
+alias   spg
+abbr    ===== subparagraph
+options head
+	==== ${1:#:subparagraph_text}
+	${0}
+
+snippet newline
+alias   nl
+abbr    words +
+options word
+	${1: +}
+	${0}
+
+snippet textbold
+alias   tbf
+abbr    *BOLDTEXT*
+options word
+	*${1:bftext}*#{0}
+
+snippet textitalic
+alias   tit
+abbr    _italictext_
+options word
+	_${1:ittext}_#{0}
+
+snippet textmonospace
+alias   tmo
+abbr    `mono`
+options word
+	`${1:monotext}`#{0}
+
+snippet textcolor
+alias   color, col
+abbr    [color_name]#text#
+options word
+	[${1:color_name}]#${2:text}#${0}
+
+snippet underline
+alias   ul
+abbr    [underline]#text#
+options word
+	[underline]#${1:text}#${0}
+
+snippet linethrough
+alias   lth
+abbr    [line-through]#text#
+options word
+	[line-through]#${1:text}#${0}
+
+snippet comment
+alias   co
+abbr    // comment
+options word
+	// ${0}
+
+snippet link
+alias   ln, url
+abbr    url[link_text]
+options word
+	${1:site_url}[${2:link_text}]${0}
+
+snippet image
+alias   img
+abbr    image::/path/to/image/[substitute_text]
+options word
+	image::${1:image_path}[${2:substitute_text}]${0}
+
+snippet itemize
+alias   it
+abbr    * item
+options head, indent
+	* ${1:item_1}
+	* ${2:item_2}
+	* ${3:item_3}
+	${0}
+
+snippet itemize2
+alias   it2
+abbr    ** item
+options head, indent
+	** ${1:item_1}
+	** ${2:item_2}
+	** ${3:item_3}
+	${0}
+
+snippet itemize3
+alias   it3
+abbr    *** item
+options head, indent
+	*** ${1:item_1}
+	*** ${2:item_2}
+	*** ${3:item_3}
+	${0}
+
+snippet enumerate
+alias   enu, een
+abbr    . item
+options head, indent
+	. ${1:item_1}
+	. ${2:item_2}
+	. ${3:item_3}
+	${0}
+
+snippet enumerate2
+alias   enu2, een2
+abbr    .. item
+options head, indent
+	.. ${1:item_1}
+	.. ${2:item_2}
+	.. ${3:item_3}
+	${0}
+
+snippet enumerate3
+alias   enu3, een3
+abbr    ... item
+options head, indent
+	... ${1:item_1}
+	... ${2:item_2}
+	... ${3:item_3}
+	${0}
+
+snippet sourcecode
+alias   code
+abbr    [source,lang]\n----\n code \n----
+options head
+	[source,${1:language}]
+	----
+	${0:#:source_code}
+	----
+
+snippet quote
+alias   qt
+abbr    [quote, 'literature_title']\n____\n text \n____
+options head
+	[quote, '${1:literature_title}']
+	____
+	${0:#:quote_text}
+	____
+
+snippet verbatim
+alias   verb
+abbr    ++++\n text \n++++
+options head
+	++++
+	${0:#:text}
+	++++
+
