@@ -107,7 +107,6 @@ call neobundle#begin(expand('~/.bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 ""e.g | git clone https://github.com/Shougo/neobundle.vim ~/.bundle/neobundle.vim
-"重くなるので入れすぎに注意!!
 
 
 "GitHub
@@ -219,7 +218,6 @@ NeoBundle 'osyo-manga/unite-vimpatches'
 NeoBundle 'osyo-manga/vim-marching', { 'autoload' : {
         \ 'filetype' : ['c', 'cpp']
         \ }}
-NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'pasela/unite-webcolorname'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'soh335/unite-qflist'
@@ -917,16 +915,6 @@ let g:quickrun_config['html'] = {
 "" <<<<<<<<<<<<<<< previm >>>>>>>>>>>>>>> "{{{
 "プレビューをリアルタイムに更新しない(保存時に更新する)
 let g:previm_enable_realtime = 0
-
-"}}}
-
-
-
-"" <<<<<<<<<<<<<<< vim-over >>>>>>>>>>>>>>> "{{{
-"コマンドラインウィンドウで:substitute入力時、マッチ箇所のハイライトをおこなう
-let g:over_enable_cmd_window = 1
-":substitute後、ハイライトを自動で消す
-let g:over_enable_auto_nohlsearch = 1
 
 "}}}
 
