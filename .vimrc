@@ -183,10 +183,7 @@ NeoBundleLazy 'kana/vim-filetype-haskell', {'autoload': {
 NeoBundleLazy 'kana/vim-smartchr', {
       \ 'insert' : 1,
       \ }
-" NeoBundleLazy 'kana/vim-smartword', { 'autoload' : {
-"       \ 'mappings' : [
-"       \   '<Plug>(smartword-w)', '<Plug>(smartword-b)', '<Plug>(smartword-ge)']
-"       \ }}
+NeoBundle 'kana/vim-smartword'
 " NeoBundleLazy 'kana/vim-smarttill', { 'autoload' : {
 "       \ 'mappings' : [
 "       \   '<Plug>(smarttill-t)', '<Plug>(smarttill-T)']
@@ -1167,17 +1164,17 @@ autocmd FileType rst
 
 
 
-"" <<<<<<<<<<<<<<< smartword >>>>>>>>>>>>>>> "{{{
-"nmap w  <Plug>(smartword-w)
-"nmap b  <Plug>(smartword-b)
-"nmap ge  <Plug>(smartword-ge)
-"xmap w  <Plug>(smartword-w)
-"xmap b  <Plug>(smartword-b)
+" <<<<<<<<<<<<<<< smartword >>>>>>>>>>>>>>> "{{{
+nmap w  <Plug>(smartword-w)
+nmap b  <Plug>(smartword-b)
+nmap ge  <Plug>(smartword-ge)
+xmap w  <Plug>(smartword-w)
+xmap b  <Plug>(smartword-b)
 
-"omap <Leader>w  <Plug>(smartword-w)
-"omap <Leader>b  <Plug>(smartword-b)
-"omap <Leader>ge  <Plug>(smartword-ge)
-""}}}
+omap <Leader>w  <Plug>(smartword-w)
+omap <Leader>b  <Plug>(smartword-b)
+omap <Leader>ge  <Plug>(smartword-ge)
+"}}}
 
 
 
