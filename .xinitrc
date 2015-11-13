@@ -12,16 +12,19 @@ if [ -f $HOME/.Xmodmap ]; then
     xmodmap $HOME/.Xmodmap
 fi
 
+
 # Mouse_Speed
 if [ $host = "albicilla" ]; then
     xset m 4/3 4
 fi
+
 
 ## Mouse_Cursor
 #if [ -f $HOME/.Xresources ]; then
 #    xrdb -merge "$HOME/.Xresources"
 #fi
 #sleep 0.6 && xsetroot -cursor_name lr_angle &
+
 
 # Key_Repeat
 xset r rate 300 40
@@ -98,10 +101,6 @@ if [ $host = "concolor" ]; then
 fi
 
 
-## wlan(wicd)
-#wicd-client -t &
-
-
 # Dropbox
 killall dropbox
 dropbox start &
@@ -122,11 +121,9 @@ while true; do
     cpu_used="$(awk '{print $1,$2,$3}' /proc/loadavg )"
     cpu_governer="$(cut -c1-3 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)"
     test $(echo $cpu_governer | wc -w) -ne 0 && cpu_governer=" ($cpu_governer)"
-    max_mem=`egrep "(^MemTotal:)" /proc/meminfo | awk '{FS=" "}{printf("%d", ($2)/1024)}'`
-    free_mem=`egrep "(^MemTotal:|^MemAvailable:)" /proc/meminfo | awk '{FS=" "}{print $2}' | tr '\n' ' ' | awk '{FS=" "}{printf("%d", ($1-$2)/1024)}'`
-    #free_mem=`egrep "(^MemTotal:|^MemFree:|^Inactive:)" /proc/meminfo | awk '{FS=" "}{print $2}' | tr '\n' ' ' | awk '{FS=" "}{printf("%d", ($1-($2+$3))/1024)}'`
+    max_mem=`grep -E "(^MemTotal:)" /proc/meminfo | awk '{FS=" "}{printf("%d", ($2)/1024)}'`
+    free_mem=`grep -E "(^MemTotal:|^MemAvailable:)" /proc/meminfo | awk '{FS=" "}{print $2}' | tr '\n' ' ' | awk '{FS=" "}{printf("%d", ($1-$2)/1024)}'`
     mem_used="$free_mem/$max_mem MB"
-    #mem_used="$(free -m | grep Mem | awk 'BEGIN{OFS=""}{print $2-$4,"/",$2}') MB"
 
     for network_if in "eth" "wlan" "usb"; do
         ip_addr=`LANG=C /sbin/ip addr show ${network_if}0 2> /dev/null | grep 'inet ' | awk -F' ' '{print $2}'`
@@ -176,11 +173,12 @@ done &
 # exec Display_Manager
 ##############################
 
-#exec icewm
 exec dwm
-while true; do
-    ## Log stderror to a file
-    dwm 2> ~/.dwm.log
-    ## No error logging
-    #dwm >/dev/null 2>&1
-done
+#exec icewm
+
+#while true; do
+#    ## Log stderror to a file
+#    dwm 2> ~/.dwm.log
+#    ## No error logging
+#    #dwm >/dev/null 2>&1
+#done

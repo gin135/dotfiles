@@ -295,6 +295,7 @@ call neobundle#config('vital.vim', {
 NeoBundle 'vim-scripts/autofmt'
 NeoBundle 'vim-scripts/HybridText'
 NeoBundle 'vim-scripts/capslock.vim'
+NeoBundle 'vim-scripts/rcs.vim'
 NeoBundleLazy 'hynek/vim-python-pep8-indent', {
       \ 'filetypes' : 'python',
       \ }
