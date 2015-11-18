@@ -1,4 +1,4 @@
-# MANPAGERとmanでの色指定
+### MANPAGERとmanでの色指定
 
 # lvのエスケープシーケンス解釈(+カラー表示)を有効にする
 export LV="-c -Sh1;36 -Su1;4;32 -Ss7;37;1;33"

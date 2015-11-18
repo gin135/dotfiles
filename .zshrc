@@ -1,5 +1,8 @@
-# 実験用設定ファイルの読み込み
-[ -f ~/.zshrc.exp ] && source ~/.zshrc.exp
+# .zshrcの自動再コンパイル
+if [ ! -e $HOME/.zshrc.zwc -o $HOME/.zshrc.zwc -ot `/bin/readlink $HOME/.zshrc` ]; then
+    zcompile $HOME/.zshrc
+fi
+
 
 # ifでzshが特定バージョン以上のとき，の条件を使えるようにする(ref:zshcontrib)
 autoload -Uz is-at-least
@@ -87,6 +90,8 @@ export BROWSER=chromium
 
 #arch-wiki-docsを開くブラウザの指定
 export wiki_browser=w3m
+
+
 
 #============================================================================
 # Directory_Control
@@ -294,6 +299,10 @@ RESET="%{${reset_color}%}"
 
 
 #---------- プロンプト用変数の指定----------
+# hook用の関数をロード
+autoload -Uz add-zsh-hook
+
+
 # ホスト名(リモートの場合は強調表示)
 if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
     prompt_host="${BG_MAGENTA}${bCYAN}${HOST}${RESET}"
@@ -403,7 +412,6 @@ prompt_jobs="%(1j,(${bRED}J:%j${RESET}),)"
 
 # VCSのブランチ名の取得
 if is-at-least 4.3.10 && [ $OSTYPE != 'cygwin' ]; then #version 4.3.10以上のみ有効
-    autoload -Uz add-zsh-hook
     autoload -Uz vcs_info
 
     zstyle ':vcs_info:*' enable git svn hg bzr
@@ -448,30 +456,33 @@ function prompt_count() {
 
 
 # プロンプトの残り文字幅の計算
-if [ $OSTYPE != 'cygwin' ]; then
-    prompt_width_left="$(( ${COLUMNS} - $(prompt_count "$prompt_host") ))"
-    prompt_width_left="$(( ${prompt_width_left} - $(prompt_count "$prompt_ver") ))"
-    ## ↑もっとスマートなやり方を探しておく
-    prompt_width_left="$(( ${prompt_width_left} ))"
-    prompt_width_left="$(( ${prompt_width_left} - $(prompt_count "$prompt_ifip") ))"
-    # ヒストリ数もzsh起動前だとうまく取得できないっぽいので.zsh_historyからおおよその数を取得しておく
-    prompt_width_left="$(( ${prompt_width_left} - 4 - $(prompt_count `wc -l ~/.zsh_history | awk '{print $1}'`) ))"
-    prompt_width_left="$(( ${prompt_width_left} - 1 ))" #一番右端のスペースを確保しておく
+function expr_prompt_width() {
+    if [ $OSTYPE != 'cygwin' ]; then
+        prompt_width_left="$(( ${COLUMNS} - $(prompt_count "$prompt_host") ))"
+        prompt_width_left="$(( ${prompt_width_left} - $(prompt_count "$prompt_ver") ))"
+        ## ↑もっとスマートなやり方を探しておく
+        prompt_width_left="$(( ${prompt_width_left} ))"
+        prompt_width_left="$(( ${prompt_width_left} - $(prompt_count "$prompt_ifip") ))"
+        # ヒストリ数もzsh起動前だとうまく取得できないっぽいので.zsh_historyからおおよその数を取得しておく
+        prompt_width_left="$(( ${prompt_width_left} - 4 - $(prompt_count `wc -l ~/.zsh_history | awk '{print $1}'`) ))"
+        prompt_width_left="$(( ${prompt_width_left} - 1 ))" #一番右端のスペースを確保しておく
 
-    # 左右で使用できる幅の計算
-    if [ $(($prompt_width_left % 2)) -eq 0 ]; then
-        #使用できる幅が偶数の場合
-        prompt_wl="$(( ${prompt_width_left} / 2 ))"
-        prompt_wr="$(( ${prompt_width_left} / 2 ))"
-    else
-        #使用できる幅が奇数の場合
-        prompt_wl="$(( ${prompt_width_left} / 2 ))"
-        prompt_wr="$(( ${prompt_width_left} / 2 + 1 ))"
+        # 左右で使用できる幅の計算
+        if [ $(($prompt_width_left % 2)) -eq 0 ]; then
+            #使用できる幅が偶数の場合
+            prompt_wl="$(( ${prompt_width_left} / 2 ))"
+            prompt_wr="$(( ${prompt_width_left} / 2 ))"
+        else
+            #使用できる幅が奇数の場合
+            prompt_wl="$(( ${prompt_width_left} / 2 ))"
+            prompt_wr="$(( ${prompt_width_left} / 2 + 1 ))"
+        fi
+        # 最終的に使用できる残り幅(Left|Right)
+        prompt_bar_l="${bBLACK}${(l:${prompt_wl}::-:)}${RESET}"
+        prompt_bar_r="${bBLACK}${(l:${prompt_wr}::-:)}${RESET}"
     fi
-    # 最終的に使用できる残り幅(Left|Right)
-    prompt_bar_l="${bBLACK}${(l:${prompt_wl}::-:)}${RESET}"
-    prompt_bar_r="${bBLACK}${(l:${prompt_wr}::-:)}${RESET}"
-fi
+}
+add-zsh-hook precmd expr_prompt_width
 
 
 
