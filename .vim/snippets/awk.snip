@@ -1,0 +1,252 @@
+### Shebang
+snippet shebang
+alias   she
+abbr    #!/bin/awk -f
+options head
+	#!/bin/awk -f
+	${0}
+
+snippet shebang_g
+abbr    #!/bin/env gawk -f
+options head
+	#!/bin/env gawk -f
+	${0}
+
+
+### Commands
+snippet begin
+alias   beg
+abbr    BEGIN {action}
+options head
+	BEGIN {
+		${0:#action}
+	}
+
+snippet end
+abbr    END {action}
+options head
+	END {
+		${0:#action}
+	}
+
+snippet beginfile
+alias   begfile
+abbr    BEGINFILE {action}
+options head
+	BEGINFILE {
+		${0:#action}
+	}
+
+snippet endfile
+abbr    ENDFILE {action}
+options head
+	ENDFILE {
+		${0:#action}
+	}
+
+snippet pattern
+alias   pat
+abbr    pattern {action}
+options head
+	${1:#pattern} {
+		${0:#action}
+	}
+
+snippet if
+abbr    if(condition) {action}
+	if(${1:#condition}) {
+		${2:#action}
+	}${0}
+
+snippet else_if
+alias   elif
+abbr    else if(condition) {action}
+	else if(${1:#condition}) {
+		${2:#action}
+	}${0}
+
+snippet else
+abbr    else {action}
+	else {
+		${1:#action}
+	}${0}
+
+snippet for
+abbr	for(init; cond; after) {action}
+	for(${1:#init}; ${2:#cond}; ${3:#after}) {
+		${4:#action}
+	}${0}
+
+snippet for_in
+alias	for_each
+abbr    for(var in array) {action}
+	for(${1:#var} in ${2:#array}) {
+		${3:#action}
+	}${0}
+
+snippet while
+abbr    while(condition) {action}
+	while(${1:#condition}) {
+		${2:#action}
+	}${0}
+
+
+snippet function
+alias   func
+abbr    function f_name (args) {procedure}
+options head
+	function ${1:#f_name} (${2:#:args}) {
+		${0:#procedure}
+	}
+
+
+### Operators
+snippet add
+abbr    +=
+	+= ${0}
+
+snippet subt
+alias	subtruct
+abbr    -=
+	-= ${0}
+
+snippet mul
+alias	multi
+abbr    *=
+	*= ${0}
+
+snippet div
+abbr    /=
+	/= ${0}
+
+snippet mod
+abbr    %=
+	%= ${0}
+
+snippet pow
+abbr    ^=
+	^= ${0}
+
+snippet and
+abbr    &&
+	&& ${0}
+
+snippet or
+abbr    ||
+	|| ${0}
+
+snippet nm
+alias   not_match
+abbr    !~
+	!~ ${0}
+
+snippet eq
+abbr    ==
+	== ${0}
+
+snippet ne
+abbr    !=
+	&& ${0}
+
+snippet le
+abbr    <=
+	<= ${0}
+
+snippet ge
+abbr    >=
+	>= ${0}
+
+
+### Arithmetic Functions
+snippet atan2
+abbr    atan2(y, x)
+	atan2(${1:#y}, ${2:#x})${0}
+
+snippet cos
+abbr    cos(x)
+	cos(${1:#x})${0}
+
+snippet sin
+abbr    sin(x)
+	sin(${#x})${0}
+
+snippet exp
+abbr    exp(x)
+	exp(${#x})${0}
+
+snippet log
+abbr    log(x)
+	log(${#x})${0}
+
+snippet sqrt
+abbr    sqrt(x)
+	sqrt(${#x})${0}
+
+snippet int
+abbr    int(x)
+	int(${#x})${0}
+
+snippet rand
+abbr    rand()
+	rand()${0}
+
+snippet srand
+abbr    srand(seed)
+	srand(${1:#:#seed})${0}
+
+
+### String Functions
+snippet gensub
+abbr    gensub(ERE, repl, how[, target])
+	gensub(${1:#ERE}, ${2:#repl}, ${3:#how}${4:#:, #target})${0}
+
+snippet gsub
+abbr    gsub(ERE, repl[, target])
+	gsub(${1:#ERE}, ${2:#repl}${3:#:, #target})${0}
+
+snippet index
+abbr    index(str, target)
+	index(${1:#str}, ${2:#target})${0}
+
+snippet length
+alias	len
+abbr    length(str)
+	length(${1:#str})${0}
+
+snippet match
+abbr    match(str, ERE)
+	match(${1:#str}, ${2:#ERE})${0}
+
+snippet split
+abbr    split(str, array[, FS])
+	split(${1:#str}, ${2:#array}${3:#:, #FS})${0}
+
+snippet sprintf
+abbr    sprintf(format, expr1, expr2, ...)
+	sprintf(${1:#format}, ${2:#expr1})
+
+snippet sub
+abbr    sub(ERE, repl[, target])
+	sub(${1:#ERE}, ${2:#repl}${3:#:, #target})${0}
+
+snippet substr
+abbr    substr(str, m[, n])
+	substr(${1:#str}, ${2:#m}${3:#:, #n})${0}
+
+snippet tolower
+abbr    tolower(str)
+	tolower(${1:#str})${0}
+
+snippet toupper
+abbr    toupper(str)
+	toupper(${1:#str})${0}
+
+### General Functions
+snippet printf
+abbr    printf("format", var)
+	printf("${1:#format}", ${2:#var})${0}
+
+snippet system
+alias   sys
+abbr    system(cmd)
+	system(${1:#cmd})${0}
