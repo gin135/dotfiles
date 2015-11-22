@@ -211,6 +211,9 @@ bindkey -a '/' history-incremental-pattern-search-forward
 # Bindkey
 #============================================================================
 
+# ^Hにeraseを割り当てる(主にreadlineを使用しているプログラム用)
+stty erase '^H'
+
 # コマンドラインをエディタで編集できるようにする
 autoload -Uz edit-command-line
 zle -N edit-command-line
