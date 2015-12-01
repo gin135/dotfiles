@@ -1,1 +1,1 @@
-stty erase '' kill ''
+stty erase '^H' kill ''

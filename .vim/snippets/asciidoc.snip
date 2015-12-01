@@ -57,7 +57,7 @@ snippet subparagraph
 alias   spg
 abbr    ===== subparagraph
 options head
-	==== ${1:#:subparagraph_text}
+	===== ${1:#:subparagraph_text}
 	${0}
 
 snippet newline
@@ -71,19 +71,19 @@ snippet textbold
 alias   tbf
 abbr    *BOLDTEXT*
 options word
-	*${1:bftext}*#{0}
+	*${1:bftext}*${0}
 
 snippet textitalic
 alias   tit
 abbr    _italictext_
 options word
-	_${1:ittext}_#{0}
+	_${1:ittext}_${0}
 
 snippet textmonospace
 alias   tmo
 abbr    `mono`
 options word
-	`${1:monotext}`#{0}
+	`${1:monotext}`${0}
 
 snippet textcolor
 alias   color, col
