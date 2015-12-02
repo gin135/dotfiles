@@ -1968,10 +1968,10 @@ set showcmd
 set title
 "タイトルの最大文字数
 set titlelen=80
-"行番号を表示する
-set number
-"行番号は、カレント行からの相対値で表示する
-set relativenumber
+"行番号を表示しない
+set nonumber
+"行番号は、カレント行からの相対値で表示しない
+set norelativenumber
 "閉じ括弧が入力されたとき、対応する括弧を表示する
 set showmatch
 "showmatch時間の指定
