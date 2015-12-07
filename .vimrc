@@ -201,6 +201,7 @@ NeoBundle 'kannokanno/previm', {
             \ 'filetypes' : ['mkd', 'markdown', 'rst']
             \ }
 NeoBundle 'mattn/benchvimrc-vim'
+NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mattn/vim-textobj-url'
