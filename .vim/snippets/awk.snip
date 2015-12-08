@@ -7,6 +7,7 @@ options head
 	${0}
 
 snippet shebang_g
+snippet sheg
 abbr    #!/bin/env gawk -f
 options head
 	#!/bin/env gawk -f
@@ -15,7 +16,7 @@ options head
 
 ### Commands
 snippet begin
-alias   beg
+alias   beg, BEGIN
 abbr    BEGIN {action}
 options head
 	BEGIN {
@@ -23,6 +24,7 @@ options head
 	}
 
 snippet end
+alias   END
 abbr    END {action}
 options head
 	END {
@@ -30,7 +32,7 @@ options head
 	}
 
 snippet beginfile
-alias   begfile
+alias   begfile, BEGINFILE
 abbr    BEGINFILE {action}
 options head
 	BEGINFILE {
@@ -38,6 +40,7 @@ options head
 	}
 
 snippet endfile
+alias   ENDFILE
 abbr    ENDFILE {action}
 options head
 	ENDFILE {
@@ -46,9 +49,9 @@ options head
 
 snippet pattern
 alias   pat
-abbr    pattern {action}
+abbr    #pattern {action}
 options head
-	${1:#pattern} {
+	${1:#:pattern} {
 		${0:#action}
 	}
 
@@ -250,3 +253,11 @@ snippet system
 alias   sys
 abbr    system(cmd)
 	system(${1:#cmd})${0}
+
+### My Functions
+snippet abs
+abbr    function abs(x){}
+options head
+	function abs(x) {
+		return (x < 0) ? -x : x
+	}
