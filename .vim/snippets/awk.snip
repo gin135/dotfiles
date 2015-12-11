@@ -6,8 +6,15 @@ options head
 	#!/bin/awk -f
 	${0}
 
+snippet shebang_m
+alias   shem, mawk
+abbr    #!/bin/env mawk -f
+options head
+	#!/bin/env mawk -f
+	${0}
+
 snippet shebang_g
-snippet sheg
+alias   sheg, gawk
 abbr    #!/bin/env gawk -f
 options head
 	#!/bin/env gawk -f
@@ -51,7 +58,7 @@ snippet pattern
 alias   pat
 abbr    #pattern {action}
 options head
-	${1:#:pattern} {
+	${1:#pattern} {
 		${0:#action}
 	}
 
@@ -222,7 +229,7 @@ abbr    match(str, ERE)
 
 snippet split
 abbr    split(str, array[, FS])
-	split(${1:#str}, ${2:#array}${3:#:, #FS})${0}
+	split(${1:#str}, ${2:#array}, ${3:#:, #FS})${0}
 
 snippet sprintf
 abbr    sprintf(format, expr1, expr2, ...)
