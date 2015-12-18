@@ -2,6 +2,7 @@ pcm.usb
 {
     type hw
     card C615
+    #card U0x41e0x30d3
 }
 
 pcm.!default
