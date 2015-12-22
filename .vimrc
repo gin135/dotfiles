@@ -2152,7 +2152,7 @@ set statusline=[%n]
             \\ %.20t%(%m%r%h%w%)
             \\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}
             \\ %<%.19(%{strftime(\"(%y/%m/%d\ %T)\",getftime(expand(\"%:p\")))}%)
-            \\ %=[col:%3c%V,line:%l]
+            \\ %=[line:%l,col:%3c%V]
             \\ [dec:%3b,hex:%2B],byte[%o]
             \\ %3P,%L
 
