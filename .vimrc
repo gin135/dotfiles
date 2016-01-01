@@ -1143,9 +1143,6 @@ autocmd FileType tex
 autocmd FileType samba,lua
             \ inoremap <buffer><expr> = smartchr#loop('= ', '=')
 
-autocmd FileType markdown
-            \ inoremap <buffer><expr> - smartchr#loop('- ', '-')
-
 autocmd FileType rst
             \ inoremap <buffer><expr> - smartchr#one_of('- ', '-')
             \ |inoremap <buffer><expr> + smartchr#one_of('+ ', '+')
