@@ -240,9 +240,6 @@ if neobundle#tap('jazzradio.vim')
         \ })
 endif
 NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-markdown', { 'autoload' : {
-        \ 'filetype' : ['markdown']
-        \ }}
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
@@ -1611,7 +1608,7 @@ nnoremap <Space>ht :<C-u>helptags $HOME/.bundle/vimdoc-ja/doc<CR>
 
 
 
-" <<<<<<<<<<<<<<<<<<<< Prolog  >>>>>>>>>>>>>>>>>> "{{{
+" <<<<<<<<<<<<<<<<<<<< Prolog >>>>>>>>>>>>>>>>>> "{{{
 "拡張子が.plのファイルを開いたら、filetypeをprologにする
 ""/usr/share/vim/vim74/filetype.vimに、Prologのコードが書かれていれば認識するように設定はされている
 au BufNewFile,BufRead *.pl set filetype=prolog
@@ -1619,7 +1616,7 @@ au BufNewFile,BufRead *.pl set filetype=prolog
 "}}}
 
 
-" <<<<<<<<<<<<<<<<<<<< Python  >>>>>>>>>>>>>>>>>> "{{{
+" <<<<<<<<<<<<<<<<<<<< Python >>>>>>>>>>>>>>>>>> "{{{
 ""Pythonでの<Tab>文字の設定
 "python-pep8-indentプラグインがあるので、使わない
 "autocmd FileType python setlocal tabstop=8 noexpandtab shiftwidth=4 softtabstop=4
@@ -2271,6 +2268,16 @@ autocmd MyAutoCmd BufReadPost * call AU_ReCheck_FENC()
 
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Fuction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "{{{
+
+"" Shell-Gei_formatter "{{{
+function! ShellGeiFormatter()
+    %s/|/\\|/g
+    %s/| /|/g
+    :normal ggi#!/bin/sh
+endfunction
+command! ShellGeiFormatter :call ShellGeiFormatter()
+"}}}
+
 
 "" Rename "{{{
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
