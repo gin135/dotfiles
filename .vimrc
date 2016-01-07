@@ -1629,28 +1629,6 @@ autocmd FileType python
 "}}}
 
 
-" <<<<<<<<<<<<<<<<<<<< Markdown >>>>>>>>>>>>>>>>>> "{{{
-"markdown内のソースコードをハイライト
-let g:markdown_fenced_languages = [
-\ 'c',
-\ 'cpp',
-\ 'make',
-\ 'sh',
-\ 'zsh',
-\ 'python',
-\ 'scheme',
-\ 'vim',
-\ 'tex',
-\ 'html',
-\ 'css',
-\ 'javascript',
-\ 'js=javascript',
-\ 'json=javascript',
-\ 'ruby',
-\ 'xml',
-\]
-
-
 " <<<<<<<<<<<<<<<<<<<< TeX/LaTeX >>>>>>>>>>>>>>>>>>>> "{{{
 "LaTeX(PDF)ビュワー用キーバインド
 autocmd FileType tex nnoremap <buffer> <silent>\v :<C-u>exec "!" . "zathura" . " '%:r.pdf'&"<CR><CR>
