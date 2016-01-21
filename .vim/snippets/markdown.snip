@@ -1,0 +1,77 @@
+snippet section
+alias   se
+abbr    # text
+options head
+	# ${1:#text}
+
+snippet subsection
+alias   sse
+abbr    ## text
+options head
+	## ${1:#text}
+
+snippet paragraph
+alias   pg
+abbr    ### text
+options head
+	### ${1:#text}
+
+snippet subparagraph
+alias   spg
+abbr    #### text
+options head
+	#### ${1:#text}
+
+snippet textit
+alias   tit
+abbr    *text*
+options word
+	*${1}*${0}
+
+snippet textbf
+alias   tbf
+abbr    **text**
+options word
+	**${1}**${0}
+
+snippet textbreak
+alias   tbk break breakline
+abbr    ~~text~~
+options word
+	~~${1}~~${0}
+
+snippet source
+alias   so code
+abbr    ```ft\ncode\n```
+options head
+	\`\`\`${1:#filetype}
+	${2:#code}
+	\`\`\`
+
+snippet itemize
+alias   it item
+abbr    * item
+options head
+	* ${0}
+
+snippet enumerate
+alias   een num
+abbr    1. item
+options head
+	1. ${0}
+
+snippet hrule
+abbr    - - -
+options head
+	- - -
+
+snippet link
+alias   li
+abbr    [link_text](url "url_abbr")
+	[${1:#link_text}](${2:#url} "${3:#url_abbr}")${0}
+
+snippet quote
+alias   qt
+abbr    > text
+options head
+	> ${0}
