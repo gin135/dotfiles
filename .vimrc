@@ -888,6 +888,7 @@ let g:quickrun_config['tex'] = {
             \ 'exec': '%c %s; %c %o',
             \ 'cmdopt': '-c',
             \ 'outputter': 'multi:buffer:quickfix',
+            \ 'outputter/buffer/split': ":rightbelow %{winheight(0)/6}sp",
             \ 'outputter/buffer/into': 0,
             \ }
 
