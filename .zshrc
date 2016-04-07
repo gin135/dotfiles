@@ -696,7 +696,7 @@ freebsd*)
   alias ls="ls -G -w"
   ;;
 linux*|cygwin)
-  alias ls="ls -F --color=always"
+  alias ls="ls -F --color=auto"
   ;;
 esac
 alias ll='ls -l'
@@ -713,15 +713,15 @@ alias lfi='ls -1 | grep -v /'
 alias ldi='ls -1 | grep /'
 
 alias grep='grep --color=none'
-alias cgrep='grep --color=always'
+alias cgrep='grep --color=auto'
 #alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 alias dmesg='dmesg -L'
 alias du='du -h'
 alias du1='du --max-depth=1'
 alias df='df -h'
-if [ `whence -p colordiff` ]; then
-    alias diff=colordiff
-fi
+#if [ `whence -p colordiff` ]; then
+#    alias diff=colordiff
+#fi
 
 alias d='dirs -lv'
 alias pu='pushd'
@@ -775,7 +775,7 @@ alias dotpull='(cd ~/dotfiles && hg pull && hg update)'
 alias binpush='(cd ~/bin && hg commit -m "Updated." && hg push)'
 alias binpull='(cd ~/bin && hg pull && hg update)'
 
-alias pacman='pacman --color=always'
+alias pacman='pacman --color=auto'
 
 alias pvim='vim -u $HOME/Dropbox/documents/practical_vim/code/essential.vim'
 
