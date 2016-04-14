@@ -819,6 +819,7 @@ alias -g LM='| nkf -Lm'
 alias -g NU='| nkf -W -Lu'
 # alias -g X='| xcowsay --time=5 --cow-size=small --at=0,0'
 
+alias -g K='| keta'
 
 
 # etc
