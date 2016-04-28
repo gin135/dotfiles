@@ -11,6 +11,12 @@ abbr    \\n|\n
 	|
 	${0}
 
+snippet if
+alias   []
+abbr    [ #condition ]
+options head
+	[ ${1:#condition} ]${0}
+
 snippet unicage
 alias   #!
 options head
@@ -18,7 +24,7 @@ options head
 	#
 	# ${1:#FILENAME} ${2:#ABST}
 	#
-	# usage: ${3:#USAGE} ${4:<OPTION>} ${5:[OPTION]}
+	# usage: ${3:#USAGE} <${4:OPTION(req)}> [${5:OPTION(nonreq)}]
 	#
 	# written by Tatsunori Aoki (ginjiro.135@gmail.com) / Date: ${0:#DATE}
 
