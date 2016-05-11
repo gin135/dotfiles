@@ -1,7 +1,12 @@
 snippet     shebang
-alias       #!
+alias       #! sh
 options     head
     #!/bin/sh
+    ${0}
+
+snippet     bash
+options     head
+    #!/bin/bash -vx
     ${0}
 
 snippet pipe
@@ -10,6 +15,11 @@ abbr    \\n|\n
 	\
 	|
 	${0}
+
+snippet pipestatus
+alias   PI
+abbr    ${PIPESTATUS[@]}
+	${PIPESTATUS[@]}${0}
 
 snippet if
 alias   []
@@ -57,8 +67,13 @@ abbr    ##############################
 options head
 	##############################
 
-snippet error_check
+snippet error_check_1
 alias   ec
+options head
+	[ $(echo ${PIPESTATUS[@]} | awk '{for(i=1;i<=NF;i++){s==$i}} END{print s}') -eq 0 ] || exit 1
+
+snippet error_check_2
+alias   EC
 abbr    ERROR_CHECK(){}
 options head
 	ERROR_CHECK() {

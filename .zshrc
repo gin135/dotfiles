@@ -423,6 +423,7 @@ if is-at-least 4.3.10 && [ $OSTYPE != 'cygwin' ]; then #version 4.3.10以上の�
     zstyle ':vcs_info:*' actionformats '%s:%b|%a'
     zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
     zstyle ':vcs_info:bzr:*' use-simple true
+    zstyle ':vcs_info:*' check-for-changes true
 
 
 #    #リポジトリの変更の監視
@@ -433,16 +434,20 @@ if is-at-least 4.3.10 && [ $OSTYPE != 'cygwin' ]; then #version 4.3.10以上の�
 #    zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
 #    zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
 
-    function _update_vcs_info_msg() {
-        psvar=()
-        LANG=C vcs_info
-        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+#    function _update_vcs_info_msg() {
+#        psvar=()
+#        LANG=C vcs_info
+#        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+#    }
+#    add-zsh-hook precmd _update_vcs_info_msg
+    precmd() {
+        vcs_info
     }
-    add-zsh-hook precmd _update_vcs_info_msg
 fi
 
 # VCSブランチ名
-prompt_vcs="%1(v|(${GREEN}%1v%f${RESET})|)"
+#prompt_vcs="%1(v|(${GREEN}%1v%f${RESET})|)"
+prompt_vcs="${vcs_info_msg_0_}"
 
 
 
@@ -967,13 +972,16 @@ fi
 #tmuxで256色表示するための変数設定
 export TERM="xterm-256color"
 
-# tmux起動
-if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then #rootもしくはリモートホストなら自動で起動しない
-elif [ -n "`ps a | grep tmux | grep -v grep`" ] ; then
-    tmux attach > /dev/null 2>&1
-else
-    tmux -2
-fi
+### tmux起動
+#[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && [ -z $TMUX ] || tmux attach
+#[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && [ -z $TMUX ] && tmux -2
+##if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then #rootもしくはリモートホストなら自動で起動しない
+##elif [ -n $TMUX ] ; then
+##    tmux attach
+##else
+##    tmux -2
+##fi
+alias tmux="tmux -2"
 
 
 # zsh+tmuxでsshしたら、新ウィンドウを作成する

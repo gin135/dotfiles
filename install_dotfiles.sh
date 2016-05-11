@@ -16,6 +16,7 @@ file_list='
     .xinitrc
     .zshenv
     .zshrc
+    .bashrc
 '
 
 dir_list='

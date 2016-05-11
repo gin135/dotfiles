@@ -1,0 +1,26 @@
+set editing-mode vi
+bind 'set show-mode-in-prompt on'
+
+bind '"\C-l": clear-screen'
+bind '"\C-f": forward-char'
+bind '"\C-b": backward-char'
+bind '"\C-a": beginning-of-line'
+bind '"\C-e": end-of-line'
+bind '"\C-p": history-search-backward'
+bind '"\C-n": history-search-forward'
+bind '"\C-y": undo'
+bind '"\C-e\C-v": edit-and-execute-command'
+
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -a'
+alias lr='ls -R'
+alias lal='ls -al'
+alias l='ls -1'
+alias cls='clear'
+alias j='jobs -l'
+alias ed='ed -p :'
+alias eng='LANG=C'
+alias jp='LANG=ja_JP.UTF-8'
+
+PS1='[\u@\h \W]\$ '
