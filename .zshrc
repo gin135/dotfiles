@@ -420,10 +420,10 @@ if is-at-least 4.3.10 && [ $OSTYPE != 'cygwin' ]; then #version 4.3.10以上の�
     zstyle ':vcs_info:*' enable git svn hg bzr
     zstyle ':vcs_info:*' formats '%s:%b'
     # zstyle ':vcs_info:*' formats '%F{white}%c%u%s%f%F{white}:%f%F{green}__branch-name__%f' '%b' '%r'
-    zstyle ':vcs_info:*' actionformats '%s:%b|%a'
-    zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
-    zstyle ':vcs_info:bzr:*' use-simple true
-    zstyle ':vcs_info:*' check-for-changes true
+    # zstyle ':vcs_info:*' actionformats '%s:%b|%a'
+    # zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+    # zstyle ':vcs_info:bzr:*' use-simple true
+    # zstyle ':vcs_info:*' check-for-changes true
 
 
 #    #リポジトリの変更の監視
@@ -434,20 +434,16 @@ if is-at-least 4.3.10 && [ $OSTYPE != 'cygwin' ]; then #version 4.3.10以上の�
 #    zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
 #    zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
 
-#    function _update_vcs_info_msg() {
-#        psvar=()
-#        LANG=C vcs_info
-#        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-#    }
-#    add-zsh-hook precmd _update_vcs_info_msg
-    precmd() {
-        vcs_info
+    function _update_vcs_info_msg() {
+        psvar=()
+        LANG=C vcs_info
+        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
     }
+    add-zsh-hook precmd _update_vcs_info_msg
 fi
 
 # VCSブランチ名
-#prompt_vcs="%1(v|(${GREEN}%1v%f${RESET})|)"
-prompt_vcs="${vcs_info_msg_0_}"
+prompt_vcs="%1(v|(${GREEN}%1v%f${RESET})|)"
 
 
 
