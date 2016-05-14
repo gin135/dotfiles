@@ -2,6 +2,9 @@ set completion-ignore-case on
 set bell-style none
 set editing-mode vi
 set keymap vi
+set show-mode-in-prompt
+set show-all-if-ambiguous
+set show-all-if-unmodified
 
 "\C-p": previous-history
 "\C-n": next-history

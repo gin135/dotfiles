@@ -17,6 +17,7 @@ file_list='
     .zshenv
     .zshrc
     .bashrc
+    .bash_profile
 '
 
 dir_list='
