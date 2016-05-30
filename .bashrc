@@ -37,6 +37,8 @@ bind '"\C-n": history-search-forward'
 bind '"\C-y": undo'
 bind '"\C-e\C-v": edit-and-execute-command'
 
+PROMPT_COMMAND='history -a'
+shopt -s histappend
 PS1="${bCyan}\u${bWhite}@${bYellow}\H$Reset (${Green}\W${Reset}) ${bPurple}\$?${Reset} \$ "
 
 alias ls='ls --color=auto'

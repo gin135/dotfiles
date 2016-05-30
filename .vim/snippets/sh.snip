@@ -56,10 +56,6 @@ options head
 		echo 'error'
 		exit 1
 	}
-	
-	day_from=${6:#DATE_START}
-	day_to=${7:#DATE_END}
-	rank_range=${8:#URIAGE_JUNI_RANGE}
 
 snippet hline
 alias   hl
@@ -70,7 +66,7 @@ options head
 snippet error_check_1
 alias   ec
 options head
-	[ $(echo ${PIPESTATUS[@]} | awk '{for(i=1;i<=NF;i++){s==$i}} END{print s}') -eq 0 ] || exit 1
+	[ $(echo ${PIPESTATUS[@]} | awk '{for(i=1;i<=NF;i++){s+=$i}} END{print s}') -eq 0 ] || exit 1
 
 snippet error_check_2
 alias   EC
@@ -81,3 +77,4 @@ options head
 		echo 'error'
 		exit 1
 	}
+	${0}
