@@ -880,6 +880,11 @@ function empherr() {(
 # CUI PDFビュワー(っぽいの)
 function pdfview() { pdftohtml -i $1 -stdout | w3m -T text/html; }
 
+# 計算用関数
+function calc()
+{
+    awk "BEGIN{print $*}"
+}
 
 # tmuxのタイトルを動的に変更
 function preexec () {

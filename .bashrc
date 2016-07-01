@@ -118,3 +118,9 @@ function clip_out()
     esac
     xclip -o -selection $sel
 }
+
+# 計算用関数
+function calc()
+{
+    awk "BEGIN{print $*}"
+}
