@@ -15,7 +15,7 @@ fi
 
 # Mouse_Speed
 if [ $host = "albicilla" ]; then
-    xset m 4/3 4
+    xset m 1 4
 fi
 
 
