@@ -1,3 +1,6 @@
+# フロー制御の無効化
+stty -ixon
+
 set completion-ignore-case on
 set bell-style none
 set editing-mode vi
