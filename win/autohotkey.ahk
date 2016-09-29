@@ -12,9 +12,8 @@ VKF4::Send,{``}
 *=::send, _
 *^::send, =
 *~::send, {+}
-@::send, [
-<+!#@::send, [
-^@::send, ^[
+*@::send, [
+*^@::send, ^[
 *`::send, {{}
 *[::send, ]
 *{::send, {}}
@@ -23,3 +22,7 @@ VKF4::Send,{``}
 *+::send, :
 +*::send, "
 *vkBA::send, '
+
+;; 以下、Windows環境のみ使用可能。何らかのUnix端末を使用すると、バッティングする
+;^h::send,{BS}
+;^m::send,{ENTER}

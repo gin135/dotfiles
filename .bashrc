@@ -23,6 +23,7 @@ export PATH=$PATH":`ruby -e 'print Gem.user_dir'`/bin"
 export PAGER=lv
 export MANPAGER=lv
 export EDITOR=vim
+export HISTSIZE=9216
 
 set editing-mode vi
 bind 'set show-mode-in-prompt on'
@@ -79,6 +80,16 @@ alias jp='LANG=ja_JP.UTF-8'
 alias mozcconfig='/usr/lib/mozc/mozc_tool --mode=config_dialog'
 
 ########################################
+
+# 仮想端末間でヒストリを共有する
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+
 
 # tmuxのタイトルを動的に変更
 function preexec () {
