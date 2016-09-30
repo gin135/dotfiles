@@ -9,6 +9,24 @@ options     head
     #!/bin/bash -vx
     ${0}
 
+snippet option
+alias   opt
+abbr    while getopts #OPT_PREFIX: OPT; do
+options head
+	while getopts ${1:#OPTION_PREFIXES}${2:::#IS_ARGS_NEED?} OPT; do
+	case $OPT in
+		${3:#OPTION_PREFIX})
+			${4}
+			;;
+		?)
+			echo "Usage: \$0 ${0:#ERROR_MSG}"
+			exit 1
+			;;
+	esac
+	done
+	shift $(expr $OPTIND - 1)
+
+
 snippet pipe
 alias   pi
 abbr    \\n|\n
@@ -32,11 +50,11 @@ alias   #!
 options head
 	#!/bin/bash -vx
 	#
-	# ${1:#FILENAME} ${2:#ABST}
+	# ${1:#FILENAME}: ${2:#ABST}
 	#
 	# usage: ${3:#USAGE} <${4:OPTION(req)}> [${5:OPTION(nonreq)}]
 	#
-	# written by Tatsunori Aoki (ginjiro.135@gmail.com) / Date: ${0:#DATE}
+	# written by Tatsunori Aoki (ginjiro.135 at gmail dot com) / Date: ${0:#DATE}
 
 snippet header
 alias   head
