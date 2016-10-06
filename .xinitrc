@@ -14,7 +14,7 @@ fi
 
 
 # Mouse_Speed
-if [ $host = "albicilla" ]; then
+if [ $host != "uncia" ]; then
     xset m 1 4
 fi
 
