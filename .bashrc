@@ -79,6 +79,8 @@ alias jp='LANG=ja_JP.UTF-8'
 
 alias mozcconfig='/usr/lib/mozc/mozc_tool --mode=config_dialog'
 
+alias soh='source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i'
+
 ########################################
 
 # 仮想端末間でヒストリを共有する
