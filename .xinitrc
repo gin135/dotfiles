@@ -14,9 +14,7 @@ fi
 
 
 # Mouse_Speed
-if [ $host != "uncia" ]; then
-    xset m 1 4
-fi
+xset m 0 0
 
 
 ## Mouse_Cursor
