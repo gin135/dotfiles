@@ -1100,8 +1100,8 @@ language message C
 "入力コマンドを表示する
 set showcmd
 
-"タイトルにtitlestringの値を表示
-set title
+"「Vimを使ってくれてありがとう」を表示しない
+set notitle
 "タイトルの最大文字数
 set titlelen=80
 "行番号を表示しない
