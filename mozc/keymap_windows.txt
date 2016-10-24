@@ -24,7 +24,7 @@ Precomposition	Shift Muhenkan	ToggleAlphanumericMode
 Precomposition	Shift Space	InsertAlternateSpace
 Precomposition	Space	InsertSpace
 Composition	Backspace	Backspace
-Composition	Ctrl [	Cancel
+Composition	Ctrl [	CancelAndIMEOff
 Composition	Ctrl @	Cancel
 Composition	Ctrl g	Delete
 Composition	Ctrl h	Backspace
@@ -61,20 +61,18 @@ Composition	Shift Space	Convert
 Composition	Space	Convert
 Composition	Tab	PredictAndConvert
 Conversion	Backspace	Cancel
-Conversion	Ctrl [	Cancel
+Conversion	Ctrl [	CancelAndIMEOff
 Conversion	Ctrl @	Cancel
-Conversion	Ctrl h	SegmentWidthShrink
 Conversion	Ctrl i	ConvertToFullKatakana
 Conversion	Ctrl j	Cancel
 Conversion	Ctrl k	PredictAndConvert
-Conversion	Ctrl l	SegmentWidthExpand
-Conversion	Ctrl Left	SegmentFocusFirst
+Conversion	Shift Right	SegmentWidthExpand
 Conversion	Ctrl m	Commit
 Conversion	Ctrl n	ConvertNext
 Conversion	Ctrl o	ConvertToHalfWidth
 Conversion	Ctrl p	ConvertPrev
 Conversion	Ctrl Right	SegmentFocusLast
-Conversion	Ctrl Shift Left	SegmentWidthShrink
+Conversion	Shift Left	SegmentWidthShrink
 Conversion	Ctrl u	Cancel
 Conversion	Eisu	ToggleAlphanumericMode
 Conversion	Enter	CommitOnlyFirstSegment
@@ -92,6 +90,8 @@ Conversion	Shift Space	ConvertPrevPage
 Conversion	Shift Tab	ConvertPrev
 Conversion	Space	ConvertNextPage
 DirectInput	Ctrl @	IMEOff
+DirectInput	Ctrl [	CancelAndIMEOff
+Precomposition	Ctrl [	CancelAndIMEOff
 Composition	Kanji	CancelAndIMEOff
 Composition	OFF	CancelAndIMEOff
 Composition	ON	IMEOn
@@ -103,3 +103,4 @@ DirectInput	ON	IMEOn
 Precomposition	Kanji	CancelAndIMEOff
 Precomposition	OFF	CancelAndIMEOff
 Precomposition	ON	IMEOn
+
