@@ -23,7 +23,7 @@ export PATH=$PATH":`ruby -e 'print Gem.user_dir'`/bin"
 export PAGER=lv
 export MANPAGER=lv
 export EDITOR=vim
-export HISTSIZE=9216
+export HISTSIZE=100000
 
 set editing-mode vi
 bind 'set show-mode-in-prompt on'
