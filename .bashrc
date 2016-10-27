@@ -25,6 +25,9 @@ export MANPAGER=lv
 export EDITOR=vim
 export HISTSIZE=100000
 
+# フロー制御の無効化
+stty stop undef
+
 set editing-mode vi
 bind 'set show-mode-in-prompt on'
 
