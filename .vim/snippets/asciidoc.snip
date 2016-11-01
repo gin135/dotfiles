@@ -97,11 +97,11 @@ abbr    [underline]#text#
 options word
 	[underline]#${1:text}#${0}
 
-snippet linethrough
-alias   lth
-abbr    [line-through]#text#
+snippet delete
+alias   del
+abbr    +++<del>+++ text +++</del>+++
 options word
-	[line-through]#${1:text}#${0}
+	 +++<del>+++ ${1:text} +++</del>+++ ${0}
 
 snippet comment
 alias   co

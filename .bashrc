@@ -67,6 +67,8 @@ alias w3m='w3m -v'
 alias feh='feh -.'
 alias ruler='echo ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----A----+----B----+----C----+----D----+----E----+----F'
 alias sudo='sudo '
+alias ci='ci -zLT'
+alias rlog='rlog -zLT'
 
 alias dotpush='(cd ~/dotfiles && hg commit -m "Updated." && hg push)'
 alias dotpull='(cd ~/dotfiles && hg pull && hg update)'
