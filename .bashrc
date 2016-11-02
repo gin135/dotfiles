@@ -23,7 +23,12 @@ export PATH=$PATH":`ruby -e 'print Gem.user_dir'`/bin"
 export PAGER=lv
 export MANPAGER=lv
 export EDITOR=vim
+
+
 export HISTSIZE=100000
+export HISTFILESIZE=100000
+export HISTCONTROL=ignoredups
+export HISTIGNORE=cd:exit
 
 # フロー制御の無効化
 stty stop undef
