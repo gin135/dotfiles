@@ -30,6 +30,8 @@ export HISTFILESIZE=100000
 export HISTCONTROL=ignoredups
 export HISTIGNORE=cd:exit
 
+export IGNOREEOF=100
+
 # フロー制御の無効化
 stty stop undef
 
