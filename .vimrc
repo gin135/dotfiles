@@ -65,16 +65,6 @@ vnoremap <silent>K K<CR>
 "Backspaceですべて削除できるようにする
 set backspace=start,eol,indent
 
-"カーソルキー無効
-noremap  <up>    <nop>
-noremap  <left>  <nop>
-noremap  <right> <nop>
-noremap  <down>  <nop>
-noremap! <up>    <nop>
-noremap! <left>  <nop>
-noremap! <right> <nop>
-noremap! <down>  <nop>
-
 "gnで新しいタブを生成
 nnoremap gn :<C-u>tabnew<CR>
 "L, Hでタブの移動
