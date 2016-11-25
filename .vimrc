@@ -142,26 +142,26 @@ xnoremap v $<Left>
 " <C-l>で検索時のハイライトを解除する
 nnoremap <silent><C-l> :nohlsearch<CR>
 
-"マクロを'Q'にする(誤爆がうっとうしい & 'q'にマッピングを割り当てるため)
-""Ex-modeが使えなくなるけど，めったに使わないからOK
-nnoremap Q q
-
-"QuickFix用のPrefix-key
-nnoremap [Quickfix] <Nop>
-nmap q [Quickfix]
-
-"QuickFixウィンドウを[Quickfix]fでトグル可能に
-nnoremap [Quickfix]f
-            \ :<C-u>call <SID>toggle_quickfix_window()<CR>
-function! s:toggle_quickfix_window()
-    let _ = winnr('$')
-    cclose
-    if _ == winnr('$')
-        copen
-        setlocal nowrap
-        setlocal whichwrap=b,s
-    endif
-endfunction
+""マクロを'Q'にする(誤爆がうっとうしい & 'q'にマッピングを割り当てるため)
+"""Ex-modeが使えなくなるけど，めったに使わないからOK
+"nnoremap Q q
+"
+""QuickFix用のPrefix-key
+"nnoremap [Quickfix] <Nop>
+"nmap q [Quickfix]
+"
+""QuickFixウィンドウを[Quickfix]fでトグル可能に
+"nnoremap [Quickfix]f
+"            \ :<C-u>call <SID>toggle_quickfix_window()<CR>
+"function! s:toggle_quickfix_window()
+"    let _ = winnr('$')
+"    cclose
+"    if _ == winnr('$')
+"        copen
+"        setlocal nowrap
+"        setlocal whichwrap=b,s
+"    endif
+"endfunction
 
 "Visualモード時に、選択した範囲を連続してインクリメント/デクリメントできるようにする(7.4.754以降)
 vnoremap <C-a> <C-a>gv
