@@ -453,8 +453,8 @@ set lazyredraw
 set noequalalways
 
 "Asian Width class Ambiguous文字(商標，コピーライトマークなど)をASCII文字の2倍の幅で表示する
-""これをdoubleにしないと、環境によっては二重丸などの表示がおかしくなる << 今のところ問題なし？？
-set ambiwidth=single
+""これをdoubleにしないと、環境によっては二重丸などの表示がおかしくなる
+set ambiwidth=double
 
 "modeline(ファイルに応じた設定を有効にする)をOnに
 set modeline
