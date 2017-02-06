@@ -280,8 +280,14 @@ set clipboard=unnamed,autoselect
 ""8,16進数にする必要のあるときは，set nrformats=octal,hex
 set nrformats=octal,hex
 
+"単語構成文字から"_"を削除(snake caseに対応するため)
+set iskeyword-=_
+
 "ファイルを開いたとき，最後にカーソルがあった位置まで移動する
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup vimrcEx
+  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
+  \ exe "normal g`\"" | endif
+augroup END
 
 "Insert, Search時にIMEをoffにする
 if has('multi_byte_ime')
