@@ -25,6 +25,8 @@ VKF4::Send,{``}
 
 Alt & j::send {Alt down}{Tab down}{Alt up}{Tab up}
 Alt & k::send {Alt down}{Shift down}{Tab down}{Alt up}{Shift up}{Tab up}
+Alt & l::send {Ctrl down}{LWin down}{Right down}{Ctrl up}{LWin up}{Right up}
+Alt & h::send {Ctrl down}{LWin down}{Left down}{Ctrl up}{LWin up}{Left up}
 
 ;; 以下、Windows環境のみ使用可能。何らかのUnix端末を使用すると、バッティングする
 ;^h::send,{BS}
