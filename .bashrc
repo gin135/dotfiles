@@ -20,9 +20,9 @@ bWhite='\[\e[1;37m\]'  # White
 
 export PATH=$PATH":$HOME/bin:$HOME/.go/bin"
 export PATH=$PATH":`ruby -e 'print Gem.user_dir'`/bin"
-export PAGER=lv
-export MANPAGER=lv
-export EDITOR=vim
+export PAGER=$(which lv 2>/dev/null || which less)
+export MANPAGER=$(which lv 2>/dev/null || which less)
+export EDITOR=$(which vim 2>/dev/null || which vi)
 
 
 export HISTSIZE=100000

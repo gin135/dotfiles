@@ -1,6 +1,6 @@
 #!/bin/sh
 
-host=`hostname`
+host=$(hostname)
 
 
 ##############################
@@ -8,25 +8,13 @@ host=`hostname`
 ##############################
 
 # Xmodmap
-if [ -f $HOME/.Xmodmap ]; then
-    xmodmap $HOME/.Xmodmap
-fi
-
+[ -f $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 
 # Mouse_Speed
 xset m 0 0
 
-
-## Mouse_Cursor
-#if [ -f $HOME/.Xresources ]; then
-#    xrdb -merge "$HOME/.Xresources"
-#fi
-#sleep 0.6 && xsetroot -cursor_name lr_angle &
-
-
 # Key_Repeat
 xset r rate 300 40
-
 
 # Imput_Method
 export XMODIFIERS=@im='uim'
@@ -42,13 +30,9 @@ uim-xim &
 ##############################
 
 # Display
-if [ $host = "albicilla" ]; then
-    xrandr --output DVI-0 --auto --left-of HDMI-0
-elif [ $host = "neofelis" ]; then
-    xrandr --output DVI-0 --auto --left-of HDMI-0
-elif [ $host = "uralensis" ]; then
-    xrandr --output VGA1 --right-of HDMI2 --auto
-fi
+[ $host = "albicilla" ] && xrandr --output DVI-0 --auto --left-of HDMI-0
+[ $host = "neofelis" ] && xrandr --output DVI-0 --auto --left-of HDMI-0
+[ $host = "uralensis" ] && xrandr --output VGA1 --right-of HDMI2 --auto
 
 
 # Screensaver
@@ -60,32 +44,14 @@ xset b off
 
 
 # XScreenSaver
-if [ $host = "uncia" ]; then
-    /usr/bin/xscreensaver -no-splash &
-fi
+[ $host = "uncia" ] && /usr/bin/xscreensaver -no-splash &
 
 
 # Wallpaper(random_change)
-if [ $host = "concolor" ]; then
-    while true;
-    do
-        sleep 150s
-        awsetbg -a -r $HOME/Dropbox/wallpaper_faves
-        sleep 150s
-    done &
-else
-    while true; do
-        find ~/Dropbox/wallpaper_faves -type f \( -name '*.jpg' -o -name '*.png' \) -print0 |
-        shuf -n1 -z | xargs -0 feh --bg-fill
-        sleep 300s
-    done &
-fi
-
-
-# xcompmgr
-if [ $host = "concolor" ]; then
-    xcompmgr -cC -r7 -l-10 -t-8 &
-fi
+while true; do
+    find ~/Dropbox/wallpaper_faves -type f \( -name '*.jpg' -o -name '*.png' \) -print0 | shuf -n1 -z | xargs -0 feh --bg-fill
+    sleep 300s
+done &
 
 
 
@@ -94,10 +60,7 @@ fi
 ##############################
 
 # Synergy_server
-if [ $host = "concolor" ]; then
-    synergys &
-fi
-
+[ $host = "concolor" ] && synergys &
 
 # Dropbox
 killall dropbox
@@ -118,7 +81,7 @@ while true; do
 
     cpu_used="$(awk '{print $1,$2,$3}' /proc/loadavg )"
     cpu_governer="$(cut -c1-3 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)"
-    test $(echo $cpu_governer | wc -w) -ne 0 && cpu_governer=" ($cpu_governer)"
+    [ $(echo $cpu_governer | wc -w) -ne 0 && cpu_governer=" ($cpu_governer)" ]
     max_mem=`grep -E "(^MemTotal:)" /proc/meminfo | awk '{FS=" "}{printf("%d", ($2)/1024)}'`
     free_mem=`grep -E "(^MemTotal:|^MemAvailable:)" /proc/meminfo | awk '{FS=" "}{print $2}' | tr '\n' ' ' | awk '{FS=" "}{printf("%d", ($1-$2)/1024)}'`
     mem_used="$free_mem/$max_mem MB"
@@ -171,7 +134,7 @@ done &
 # exec Display_Manager
 ##############################
 
-exec dwm
+exec dwm 2> ~/.dwm.log
 #exec icewm
 
 #while true; do
