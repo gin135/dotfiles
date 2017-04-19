@@ -3,8 +3,8 @@ set encoding=utf-8
 ".vimrcのエンコーディングの指定
 scriptencoding utf-8
 
-" プラグインの有効化
-filetype plugin on
+" プラグイン/インデントの有効化
+filetype plugin indent on
 
 
 """"" .vimrc

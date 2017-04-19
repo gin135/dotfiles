@@ -1,2 +1,2 @@
-setlocal wrap textwidth=76
-setlocal colorcolumn=76 highlight colorcolumn ctermbg=lightgray
+setlocal wrap textwidth=72
+setlocal colorcolumn=72
