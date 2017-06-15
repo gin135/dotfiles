@@ -254,7 +254,7 @@ set nolinebreak
 "長い行を折り返して表示する
 set wrap
 "折り返した行をインデントする(ver 7.4.338以降)
-if v:version >= 704
+if v:version > 704
     set breakindent
     set breakindentopt=min:80,shift:1,sbr
 endif
