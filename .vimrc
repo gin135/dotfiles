@@ -370,6 +370,8 @@ set ignorecase
 set smartcase
 "ignorecase適用時にマッチした単語の大文字・小文字の区別を打ち込んだテキストに応じて修正する
 set infercase
+"辞書補完で使用する辞書ファイル
+set dictionary=/usr/share/dict/word
 
 "改行時に自動でコメントアウトしない(nocompatibleより先に書かないとダメっぽい??)
 autocmd FileType *  setlocal formatoptions-=cro
