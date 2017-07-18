@@ -32,6 +32,8 @@ export HISTIGNORE=cd:exit
 
 export IGNOREEOF=100
 
+umask 022
+
 # フロー制御の無効化
 stty stop undef
 
