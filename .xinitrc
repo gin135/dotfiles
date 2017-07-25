@@ -64,7 +64,7 @@ done &
 
 # Dropbox
 killall dropbox
-dropbox start &
+dropbox-cli start &
 
 
 
