@@ -32,7 +32,7 @@ uim-xim &
 # Display
 [ $host = "albicilla" ] && xrandr --output DVI-0 --auto --left-of HDMI-0
 [ $host = "neofelis" ] && xrandr --output DVI-0 --auto --left-of HDMI-0
-[ $host = "uralensis" ] && xrandr --output VGA1 --right-of HDMI2 --auto
+[ $host = "uralensis" ] && xrandr --output HDMI-2 --left-of HDMI-1 --auto
 
 
 # Screensaver
