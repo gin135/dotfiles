@@ -30,7 +30,6 @@ static const Rule rules[] = {
 	{ "feh" ,        NULL,       NULL,       0,            True,        -1 },
 	{ "Gimp",        NULL,       NULL,       0,            True,        -1 },
 	{ "dunst",       NULL,       NULL,       0,            True,        -1 },
-	{ "wine",        NULL,       NULL,       0,            True,        -1 },
 	{ "dia",         NULL,       NULL,       0,            True,        -1 },
 	{ "Evilvte",     NULL,       NULL,       1 << 0,       False,       -1 },
 	{ "Chrome",      NULL,       NULL,       1 << 0,       False,        1 },
@@ -39,11 +38,8 @@ static const Rule rules[] = {
 	{ "chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
 	{ "Gvim",        NULL,       NULL,       1 << 2,       True,        -1 },
 	{ "Skype",       NULL,       NULL,       1 << 2,       True,        -1 },
-	{ "MyPaint",     NULL,       NULL,       1 << 3,       True,        -1 },
 	{ "Pinta",       NULL,       NULL,       1 << 3,       False,       -1 },
 	{ "Inkscape",    NULL,       NULL,       1 << 3,       False,       -1 },
-	{ "Steam",       NULL,       NULL,       1 << 4,       True,        -1 },
-	{ "VLC",         NULL,       NULL,       1 << 4,       False,        1 },
 	{ "VirtualBox",  NULL,       NULL,       1 << 5,       True,        -1 },
 };
 

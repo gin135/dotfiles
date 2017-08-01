@@ -81,13 +81,13 @@ while true; do
 
     cpu_used="$(awk '{print $1,$2,$3}' /proc/loadavg )"
     cpu_governer="$(cut -c1-3 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)"
-    [ $(echo $cpu_governer | wc -w) -ne 0 && cpu_governer=" ($cpu_governer)" ]
+    [ $(echo $cpu_governer | wc -w) -ne 0 ] && cpu_governer=" ($cpu_governer)"
     max_mem=`grep -E "(^MemTotal:)" /proc/meminfo | awk '{FS=" "}{printf("%d", ($2)/1024)}'`
     free_mem=`grep -E "(^MemTotal:|^MemAvailable:)" /proc/meminfo | awk '{FS=" "}{print $2}' | tr '\n' ' ' | awk '{FS=" "}{printf("%d", ($1-$2)/1024)}'`
     mem_used="$free_mem/$max_mem MB"
 
-    for network_if in "eth" "wlan" "usb"; do
-        ip_addr=`LANG=C /sbin/ip addr show ${network_if}0 2> /dev/null | grep 'inet ' | awk -F' ' '{print $2}'`
+    for network_if in "$(ip addr |grep '^[1-9]:' |cut -d' ' -f2 |tr -d ':' |grep -v '^lo$' |xargs)"; do
+        ip_addr=`LANG=C /sbin/ip addr show ${network_if} 2> /dev/null | grep 'inet ' | awk '{print $2}'`
         if [ ${#ip_addr} -ne 0 ]; then
             break
         fi
