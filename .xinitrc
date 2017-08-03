@@ -11,16 +11,17 @@ host=$(hostname)
 [ -f $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 
 # Mouse_Speed
-xset m 0 0
+## xinputで対応する
+# xset m 0 0
 
 # Key_Repeat
 xset r rate 300 40
 
 # Imput_Method
-export XMODIFIERS=@im='uim'
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 uim-xim &
+export XMODIFIERS='@im=uim'
 #uim-toolbar-gtk-systray &
 
 
