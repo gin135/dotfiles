@@ -19,7 +19,7 @@ bWhite='\[\e[1;37m\]'  # White
 ########################################
 
 export PATH=$PATH":$HOME/bin:$HOME/.go/bin"
-which ruby 2>/dev/null && export PATH=$PATH":`ruby -e 'print Gem.user_dir'`/bin"
+which ruby 2>&1 >/dev/null && export PATH=$PATH":`ruby -e 'print Gem.user_dir'`/bin"
 export PAGER=$(which lv 2>/dev/null || which less)
 export MANPAGER=$(which lv 2>/dev/null || which less)
 export EDITOR=$(which vim 2>/dev/null || which vi)
