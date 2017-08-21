@@ -488,9 +488,9 @@ highlight PmenuSbar ctermbg=darkgray
 highlight PmenuThumb ctermbg=lightgray
 
 "incsearchのハイライトの色
-highlight IncSearch ctermfg=black ctermbg=yellow
+highlight IncSearch ctermfg=red ctermbg=yellow
 "hlsearchのハイライトの色
-highlight Search ctermfg=white ctermbg=yellow
+highlight Search ctermfg=black ctermbg=yellow
 
 
 
