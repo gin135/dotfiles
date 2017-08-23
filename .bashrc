@@ -98,6 +98,9 @@ alias mozcconfig='/usr/lib/mozc/mozc_tool --mode=config_dialog'
 
 alias sohi='source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i'
 
+alias script='script -fq >(awk '\''{print strftime("[%F %T] ") $0}{fflush() }'\''>> typescript)'
+
+
 ########################################
 
 # 仮想端末間でヒストリを共有する
