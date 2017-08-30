@@ -173,7 +173,7 @@ vnoremap <C-x> <C-x>gv
 "nnoremap <Space>t :<C-u>VimShellExecute ctags -R<CR>
 nnoremap <Space>t :<C-u>Ctags<CR>
 " <Space>htでhelptagsを実行
-nnoremap <Space>ht :<C-u>helptags $HOME/.bundle/vimdoc-ja/doc<CR>
+nnoremap <Space>ht :<C-u>helptags $HOME/.vim/doc<CR>
 
 
 
