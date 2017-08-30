@@ -1,0 +1,22 @@
+snippet sh
+	#!/bin/sh
+snippet bash
+	#!`system("which bash")`
+snippet func
+	function ${1:#func_name}() {
+		${2}
+	}
+snippet if
+	[ ${1:#cond} ] && ${2:#expr}
+snippet not
+	[ ${1:#cond} ] || ${2:#expr}
+snippet while
+	while ${1:#cmd}; do
+		${2}
+	done
+snippet error
+	ERROR_CHECK() {
+		[ $(echo ${PIPESTATUS[@]} | awk '{for(i=1;i<=NF;i++){s+=$i}} END{print s}') -eq 0 ] && return
+		${1:handling}
+		exit ${2:#code}
+	}
