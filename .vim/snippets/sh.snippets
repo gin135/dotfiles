@@ -1,7 +1,11 @@
 snippet sh
 	#!/bin/sh
+	
+	${0}
 snippet bash
 	#!`system("which bash")`
+	
+	${0}
 snippet func
 	function ${1:#func_name}() {
 		${2}
@@ -14,6 +18,10 @@ snippet while
 	while ${1:#cmd}; do
 		${2}
 	done
+snippet case
+	case ${1:#var} in
+		"${2:#val}" ) ${3:cmd} ;;
+	esac
 snippet error
 	ERROR_CHECK() {
 		[ $(echo ${PIPESTATUS[@]} | awk '{for(i=1;i<=NF;i++){s+=$i}} END{print s}') -eq 0 ] && return
