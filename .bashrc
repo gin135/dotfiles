@@ -1,20 +1,28 @@
-Reset='\[\e[0m\]'      # Text Reset
-Black='\[\e[0;30m\]'   # Black - Regular
-Red='\[\e[0;31m\]'     # Red
-Green='\[\e[0;32m\]'   # Green
-Yellow='\[\e[0;33m\]'  # Yellow
-Blue='\[\e[0;34m\]'    # Blue
-Purple='\[\e[0;35m\]'  # Purple
-Cyan='\[\e[0;36m\]'    # Cyan
-White='\[\e[0;37m\]'   # White
-bBlack='\[\e[1;30m\]'  # Black - Bold
-bRed='\[\e[1;31m\]'    # Red
-bGreen='\[\e[1;32m\]'  # Green
-bYellow='\[\e[1;33m\]' # Yellow
-bBlue='\[\e[1;34m\]'   # Blue
-bPurple='\[\e[1;35m\]' # Purple
-bCyan='\[\e[1;36m\]'   # Cyan
-bWhite='\[\e[1;37m\]'  # White
+Reset='\[\e[0m\]'       # Text Reset
+Black='\[\e[0;30m\]'    # Black - Regular
+Red='\[\e[0;31m\]'      # Red
+Green='\[\e[0;32m\]'    # Green
+Yellow='\[\e[0;33m\]'   # Yellow
+Blue='\[\e[0;34m\]'     # Blue
+Magenta='\[\e[0;35m\]'   # Purple
+Cyan='\[\e[0;36m\]'     # Cyan
+White='\[\e[0;37m\]'    # White
+bBlack='\[\e[1;30m\]'   # Black - Bold
+bRed='\[\e[1;31m\]'     # Red
+bGreen='\[\e[1;32m\]'   # Green
+bYellow='\[\e[1;33m\]'  # Yellow
+bBlue='\[\e[1;34m\]'    # Blue
+bMagenta='\[\e[1;35m\]'  # Purple
+bCyan='\[\e[1;36m\]'    # Cyan
+bWhite='\[\e[1;37m\]'   # White
+bgBlack='\[\e[0;40m\]'  # Black - Background
+bgRed='\[\e[0;41m\]'    # Red
+bgGreen='\[\e[0;42m\]'  # Green
+bgYellow='\[\e[0;43m\]' # Yellow
+bgBlue='\[\e[0;44m\]'   # Blue
+bgMagenta='\[\e[0;45m\]' # Purple
+bgCyan='\[\e[0;46m\]'   # Cyan
+bgWhite='\[\e[0;47m\]'  # White
 
 ########################################
 
@@ -52,7 +60,13 @@ bind '"\C-e\C-v": edit-and-execute-command'
 
 PROMPT_COMMAND='history -a'
 shopt -s histappend
-PS1="${bCyan}\u${bWhite}@${bYellow}\H$Reset (${Green}\W${Reset}) ${bPurple}\$?${Reset} \$ "
+
+username="${bCyan}\u${bWhite}"
+hostname="${bYellow}\H${Reset}"
+[ -n "${SSH_CLIENT}" ] && hostname="${bgMagenta}${bWhite}\H${Reset}"
+working_dir="${Green}\W${Reset}"
+status_code="${bMagenta}\$?${Reset}"
+PS1="${username}@${hostname} (${working_dir}) ${status_code} \$ "
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
