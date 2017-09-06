@@ -1,3 +1,8 @@
+# 非対話でbashが起動された場合、何もしない
+[ echo "$-" | grep -i '0' ] || return
+
+
+### 色定義
 Reset='\[\e[0m\]'       # Text Reset
 Black='\[\e[0;30m\]'    # Black - Regular
 Red='\[\e[0;31m\]'      # Red
