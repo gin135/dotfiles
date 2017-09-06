@@ -1,5 +1,5 @@
 # 非対話でbashが起動された場合、何もしない
-[ echo "$-" | grep -i '0' ] || return
+[ $(echo "$-" |grep -o 'i') ] || return
 
 
 ### 色定義
