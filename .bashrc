@@ -40,8 +40,8 @@ export EDITOR=$(which vim 2>/dev/null || which vi)
 
 export HISTSIZE=100000
 export HISTFILESIZE=100000
-export HISTCONTROL=ignoredups
-export HISTIGNORE=cd:exit
+export HISTCONTROL=ignoredups:erasedups
+export HISTIGNORE=cd*:ls:pwd:cal:fg:bg:mutt*:exit
 
 export IGNOREEOF=100
 
@@ -132,14 +132,13 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 
-# tmuxのタイトルを動的に変更
+# tmuxのタイトルを動的に変更するやつ
 function preexec () {
   [ ${STY} ] && echo -ne "\ek${1%% *}\e\\"
 }
 
 # 引数で渡したファイルの内容を、クリップボードへコピーするやつ
-function clip_in()
-{
+function clip_in() {
     case $2 in
         c|clip|"")
             sel="clipboard"
@@ -155,8 +154,7 @@ function clip_in()
 }
 
 # 引数で渡したファイルの内容を、出力するやつ
-function clip_out()
-{
+function clip_out() {
     case $1 in
         c|clip|"")
             sel="clipboard"
@@ -171,8 +169,13 @@ function clip_out()
     xclip -o -selection $sel
 }
 
-# 計算用関数
-function calc()
-{
-    awk "BEGIN{print $*}"
+# 計算をするやつ
+function calc() {
+    echo "$*" | bc
+}
+
+# CLI PDFビュワーもどき
+function pdfview() {
+    pdftohtml $1 -i -stdout |
+    w3m -T text/html
 }
