@@ -1,9 +1,18 @@
+snippet source
+	[source,${1:bash}]
+	----
+	${2}
+	----
 snippet so
 	[source,${1:bash}]
 	----
 	${2}
 	----
 snippet link
+	${1:#url}[${2:#str}]
+snippet li
+	${1:#url}[${2:#str}]
+snippet url
 	${1:#url}[${2:#str}]
 snippet h1
 	= ${1}
@@ -19,7 +28,16 @@ snippet verb
 	++++
 	${1}
 	++++
+snippet vb
+	++++
+	${1}
+	++++
 snippet quote
+	[quote, ${1:#cite_author}, ${2:#cite_source}]
+	____
+	${3}
+	____
+snippet cite
 	[quote, ${1:#cite_author}, ${2:#cite_source}]
 	____
 	${3}
