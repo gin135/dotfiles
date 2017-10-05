@@ -111,7 +111,7 @@ alias mutto='TERM=screen mutt -F $HOME/.mutt/private/muttrc_ouj'
 alias eng='LANG=C'
 alias jp='LANG=ja_JP.UTF-8'
 
-alias info='info --vi-keys'
+#alias info='info --vi-keys'
 
 alias mozcconfig='/usr/lib/mozc/mozc_tool --mode=config_dialog'
 
@@ -178,4 +178,10 @@ function calc() {
 function pdfview() {
     pdftohtml $1 -i -stdout |
     w3m -T text/html
+}
+
+# infoをページャで閲覧するラッパー
+alias info='info_pager'
+function info_pager() {
+    info $1 | ${PAGER}
 }
