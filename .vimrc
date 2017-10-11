@@ -504,7 +504,7 @@ set laststatus=2
 "ステータスラインの表示内容の設定
 ""詳細は':help statusline'で
 set statusline=[%n]
-            \\ %.20t%(%m%r%h%w%)
+            \\ %.32t%(%m%r%h%w%)
             \\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}
             \\ %<%.19(%{strftime(\"(%y/%m/%d\ %T)\",getftime(expand(\"%:p\")))}%)
             \\ %=[line:%l,col:%3c%V]
