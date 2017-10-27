@@ -183,5 +183,5 @@ function pdfview() {
 # infoをページャで閲覧するラッパー
 alias info='info_pager'
 function info_pager() {
-    info $1 | ${PAGER}
+    env info $1 | ${PAGER}
 }
