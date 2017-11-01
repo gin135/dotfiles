@@ -82,7 +82,7 @@ while true; do
     ip=$(ip addr | grep '^[1-9]' | awk '$0=$2' | tr -d ':' | grep -v '^lo$' | sed 's/.*/ip addr show & | grep "inet "/' | sh | head -n 1 | awk '{print $NF":"$2}')
     [ -z ${ip} ] && ip="NC"
 
-    if [ which acpi ]; then
+    if [ -n "$(acpi -b)" ]; then
         batt=$(acpi -b | grep -o '[0-9]*%')
 
         case $(acpi -b) in
