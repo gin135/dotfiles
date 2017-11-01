@@ -80,6 +80,7 @@ while true; do
     mem_used="${free_mem}/${max_mem} MB"
 
     ip=$(ip addr | grep '^[1-9]' | awk '$0=$2' | tr -d ':' | grep -v '^lo$' | sed 's/.*/ip addr show & | grep "inet "/' | sh | head -n 1 | awk '{print $NF":"$2}')
+    [ -z ${ip} ] && ip="NC"
 
     if [ which acpi ]; then
         batt=$(acpi -b | grep -o '[0-9]*%')
@@ -103,7 +104,7 @@ while true; do
 
     date_full=$(LANG=C date +%m/%d\(%a\)\ %H:%M)
 
-    xsetroot -name "${cpu_used}${cpu_governer}${sep}${mem_used}${sep}${ip}${batt}${date_full}"
+    xsetroot -name "${cpu_used} (${cpu_governer})${sep}${mem_used}${sep}${ip}${batt}${date_full}"
 
     sleep 2
 done &
