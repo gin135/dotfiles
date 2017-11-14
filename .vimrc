@@ -282,8 +282,9 @@ set clipboard=unnamed,autoselect
 ""8,16進数にする必要のあるときは，set nrformats=octal,hex
 set nrformats=octal,hex
 
-"単語構成文字から"_"を削除(snake caseに対応するため)
-set iskeyword-=_
+""単語構成文字から"_"を削除(snake caseに対応するため)
+""単語検索時に面倒臭いので、設定しない
+"set iskeyword-=_
 
 "ファイルを開いたとき，最後にカーソルがあった位置まで移動する
 augroup vimrcEx
