@@ -182,7 +182,7 @@ keymap o        EXTERN_LINK
 keymap f        LIST_MENU
 keymap C-g      LINE_INFO
 keymap C-c      INTERRUPT
-keymap C-[      INTERRUPT
+keymap C-\[      INTERRUPT
 
 # File/Stream
 keymap U        GOTO
