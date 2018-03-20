@@ -28,7 +28,6 @@ static const Rule rules[] = {
 	 */
 	/* class         instance    title       tags mask     isfloating   monitor */
 	{ "feh" ,        NULL,       NULL,       0,            True,        -1 },
-	{ "Gimp",        NULL,       NULL,       0,            True,        -1 },
 	{ "dunst",       NULL,       NULL,       0,            True,        -1 },
 	{ "dia",         NULL,       NULL,       0,            True,        -1 },
 	{ "Evilvte",     NULL,       NULL,       1 << 0,       False,       -1 },
@@ -37,9 +36,7 @@ static const Rule rules[] = {
 	{ "Chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
 	{ "chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
 	{ "Gvim",        NULL,       NULL,       1 << 2,       True,        -1 },
-	{ "Skype",       NULL,       NULL,       1 << 2,       True,        -1 },
-	{ "Pinta",       NULL,       NULL,       1 << 3,       False,       -1 },
-	{ "Inkscape",    NULL,       NULL,       1 << 3,       False,       -1 },
+	{ "Skype",       NULL,       NULL,       1 << 4,       True,        -1 },
 	{ "VirtualBox",  NULL,       NULL,       1 << 5,       True,        -1 },
 };
 
