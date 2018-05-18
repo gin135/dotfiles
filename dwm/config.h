@@ -5,8 +5,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char *fonts[]            = {"Migu 1M:pixelsize=16,style=regular"};
-static const char dmenufont[]       = "Migu 1M:pixelsize=16,style=regular";
+static const char *fonts[]            = {"Migu 1M:size=16"};
+static const char dmenufont[]       = "Migu 1M:size=16";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
@@ -32,9 +32,7 @@ static const Rule rules[] = {
 	{ "dia",         NULL,       NULL,       0,            True,        -1 },
 	{ "Evilvte",     NULL,       NULL,       1 << 0,       False,       -1 },
 	{ "Chrome",      NULL,       NULL,       1 << 0,       False,        1 },
-	{ "chrome",      NULL,       NULL,       1 << 0,       False,        1 },
 	{ "Chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
-	{ "chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
 	{ "Gvim",        NULL,       NULL,       1 << 2,       True,        -1 },
 	{ "Skype",       NULL,       NULL,       1 << 4,       True,        -1 },
 	{ "VirtualBox",  NULL,       NULL,       1 << 5,       True,        -1 },
