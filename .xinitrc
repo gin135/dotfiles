@@ -42,8 +42,13 @@ xset -dpms
 xset b off
 
 
-# XScreenSaver
-[ ${host} = "uncia" ] && /usr/bin/xscreensaver -no-splash &
+# ScreenSaver & ScreenLock
+case ${host} in
+    "caracal" | "manul" )
+        /usr/bin/xscreensaver -no-splash &
+        /usr/bin/xss-lock -- /usr/bin/xscreensaver-command --lock >/dev/null &
+        break ;;
+esac
 
 
 # Wallpaper(random_change)
