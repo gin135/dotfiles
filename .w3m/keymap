@@ -203,7 +203,7 @@ keymap r        RELOAD
 keymap R        REDRAW
 
 # Tab
-keymap gn       COMMAND "NEW_TAB; GOTO http://google.com"
+keymap gn       COMMAND "NEW_TAB; GOTO https://google.com"
 keymap x        CLOSE_TAB
 keymap dd       CLOSE_TAB
 keymap C-l      NEXT_TAB
@@ -255,8 +255,8 @@ keymap qq       QUIT
 # User
 keymap C-d      MOVE_DOWN1 15
 keymap C-u      MOVE_UP1 15
-keymap go       GOTO http://google.com
-keymap gt       TAB_GOTO http://google.com
+keymap go       GOTO https://google.com
+keymap gt       TAB_GOTO https://google.com
 
 
 #------------------------------

@@ -52,8 +52,17 @@ esac
 
 
 # Wallpaper(random_change)
+case ${host} in
+    "caracal" | "manul" )
+        wallpaper="wallpaper_animal"
+        ;;
+    *)
+        wallpaper="wallpaper_faves"
+        ;;
+esac
+
 while true; do
-    find ~/Dropbox/wallpaper_faves -type f | grep -iE '[.](jpg|png)$' | shuf | head -n 1 | xargs feh --bg-fill
+    find ~/Dropbox/${wallpaper} -type f | grep -iE '[.](jpg|png)$' | shuf | head -n 1 | xargs feh --bg-fill
     sleep 300s
 done &
 
