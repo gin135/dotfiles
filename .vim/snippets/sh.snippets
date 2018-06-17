@@ -12,6 +12,10 @@ snippet func
 	}
 snippet if
 	[ ${1:#cond} ] && ${2:#expr}
+snippet iff
+	if [ ${1:#cond} ]; then
+		${2}
+	fi
 snippet not
 	[ ${1:#cond} ] || ${2:#expr}
 snippet while

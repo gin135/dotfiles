@@ -22,6 +22,13 @@ export QT_IM_MODULE='uim'
 uim-xim &
 export XMODIFIERS='@im=uim'
 
+# Wacom
+if [ ${host} = "uralensis" ]; then
+    wacom_id = xsetwacom --list devices | grep stylus | grep -o 'id: [0-9]*' | awk '$0=$2'
+    primary_disp = xrandr | grep 'connected primary' | awk '$0=$1'
+
+    xsetwacom --set ${wacom_id} MapToOutput "${primary_disp}"
+fi
 
 
 ##############################
