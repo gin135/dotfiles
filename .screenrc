@@ -1,0 +1,5 @@
+escape ^Zz
+vbell off
+term screen-256color
+hardstatus lastline
+startup_message off
