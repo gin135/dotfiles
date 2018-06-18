@@ -2,22 +2,18 @@
 
 file_list='
     .Xmodmap
-    .asoundrc
     .gvimrc
     .hgrc
     .inputrc
     .latexmkrc
     .mkshrc
-    .nanorc
     .profile
-    .tmux.conf
     .todo.cfg
     .vimrc
     .xinitrc
-    .zshenv
-    .zshrc
     .bashrc
     .bash_profile
+    .screenrc
 '
 
 dir_list='
