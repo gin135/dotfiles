@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	{ "Evilvte",     NULL,       NULL,       1 << 0,       False,       -1 },
 	{ "Chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
 	{ "Slack",       NULL,       NULL,       1 << 2,       False,       -1 },
+	{ "GNS3",        NULL,       NULL,       1 << 3,       True,        -1 },
 	{ "Skype",       NULL,       NULL,       1 << 4,       True,        -1 },
 	{ "VirtualBox",  NULL,       NULL,       1 << 5,       True,        -1 },
 	{ "Google Chrome",      NULL,       NULL,       1 << 5,       False,       -1 },
