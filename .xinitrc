@@ -100,7 +100,7 @@ while true; do
     free_mem=$(grep -E "(^MemTotal:|^MemAvailable:)" /proc/meminfo | awk '{FS=" "}{print $2}' | tr '\n' ' ' | awk '{FS=" "}{printf("%d", ($1-$2)/1024)}')
     mem_used="${free_mem}/${max_mem} MB"
 
-    ip=$(ip addr | grep '^[1-9]' | awk '$0=$2' | tr -d ':' | grep -v '^lo$' | sed 's/.*/ip addr show & | grep "inet "/' | sh | head -n 1 | awk '{print $NF":"$2}')
+    ip=$(ip addr | grep 'inet ' | grep -vE '$(lo|docker[[:digit:]]*)$' | head -n 1 | awk '{print $NF":"$2}'
     [ -z ${ip} ] && ip="NC"
 
     if [ -n "$(acpi -b)" ]; then
