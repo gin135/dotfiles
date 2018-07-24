@@ -1,8 +1,16 @@
 escape ^Zz
-vbell off
-term screen-256color
-hardstatus lastline
-startup_message off
-nethack on
 
-shelltitle '> |bash'
+autodetach on
+crlf off
+encoding UTF-8
+flow off
+scrollback 8192
+startup_message off
+term screen-256color
+utf8 on
+vbell off
+
+hardstatus on
+hardstatus lastline '%{.M}%H@%`uname%{-} %{.w}(%l)%{-} %= %-w%{.C}[%n %t*]%{-}%+w %= %{.G}[%02c:%s]%{-} %{.Y}(%Y-%m-%d)%{-}'
+
+shelltitle "$ |bash"
