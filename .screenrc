@@ -1,9 +1,11 @@
 escape ^Zz
+shelltitle "$ |bash"
 
 autodetach on
 crlf off
 encoding UTF-8
 flow off
+ignorecase on
 scrollback 8192
 startup_message off
 term screen-256color
@@ -11,6 +13,5 @@ utf8 on
 vbell off
 
 hardstatus on
-hardstatus lastline '%{.M}%H@%`uname%{-} %{.w}(%l)%{-} %= %-w%{.C}[%n %t*]%{-}%+w %= %{.G}[%02c:%s]%{-} %{.Y}(%Y-%m-%d)%{-}'
-
-shelltitle "$ |bash"
+hardstatus lastline '%{.M}%H%{-} %{.w}(%l)%{-} %= %-w%{.C}[%n %t*]%{-}%+w %= %{.G}[%02c:%s]%{-} %{.Y}(%Y-%m-%d)%{-}'
+caption splitonly '%?%F%{.c}%:%{-}%?%n %t%'
