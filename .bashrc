@@ -71,7 +71,7 @@ hostname="${bYellow}\H${Reset}"
 [ -n "${SSH_CLIENT}" ] && hostname="${bgMagenta}${bWhite}\H${Reset}"
 working_dir="${Green}\W${Reset}"
 status_code="${bMagenta}\$?${Reset}"
-PS1="\[\033k\033\\\]${username}@${hostname} (${working_dir}) ${status_code} \$ "
+PS1="${username}@${hostname} (${working_dir}) ${status_code} \$ "
 
 alias ls='ls --color=auto'
 alias ll='ls -l'

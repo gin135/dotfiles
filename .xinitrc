@@ -36,8 +36,6 @@ fi
 ##############################
 
 # Display
-[ ${host} = "albicilla" ] && xrandr --output DVI-0 --auto --left-of HDMI-0
-[ ${host} = "neofelis" ] && xrandr --output DVI-0 --auto --left-of HDMI-0
 [ ${host} = "uralensis" ] && xrandr --output HDMI-2 --left-of HDMI-1 --auto
 
 
@@ -60,7 +58,7 @@ esac
 
 # Wallpaper(random_change)
 case ${host} in
-    "caracal" | "manul" )
+    "leucas" | "caracal" )
         wallpaper="wallpaper_animal"
         ;;
     *)
@@ -72,16 +70,6 @@ while true; do
     find ~/Dropbox/${wallpaper} -type f | grep -iE '[.](jpg|png)$' | shuf | head -n 1 | xargs feh --bg-fill
     sleep 300s
 done &
-
-
-
-##############################
-# Etc
-##############################
-
-# Dropbox
-killall dropbox
-dropbox-cli start &
 
 
 
@@ -104,7 +92,7 @@ while true; do
     [ -z ${ip} ] && ip="NC"
 
     if [ -n "$(acpi -b)" ]; then
-        batt=$(acpi -b | grep -o '[0-9]*%')
+        batt=$(acpi -b | grep -o '[0-9]*%' | xargs)
 
         case $(acpi -b) in
             *Discharging*)

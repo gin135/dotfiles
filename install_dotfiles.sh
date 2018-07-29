@@ -14,6 +14,7 @@ file_list='
     .bashrc
     .bash_profile
     .screenrc
+    .tmux.conf
 '
 
 dir_list='
