@@ -5,5 +5,7 @@ snippet c)
 	`&enc[:2] == "utf" ? "©" : "(c)"` Copyright `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
 snippet date
 	`strftime("%Y-%m-%d")`
+#snippet datefull
+#	`strftime("%Y-%m-%d %T")`
 snippet datefull
-	`strftime("%Y-%m-%d %T")`
+	`strftime("%Y/%m/%d %H:%M:%S (%Z)")`
