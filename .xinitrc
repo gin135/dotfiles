@@ -38,22 +38,15 @@ fi
 # Display
 [ ${host} = "uralensis" ] && xrandr --output HDMI-2 --left-of HDMI-1 --auto
 
-
-# Screensaver
-xset s off #[timeout cycle]
-# Energy_Star
+# DPMS(Energy_Star)
 xset -dpms
 # Beep
 xset b off
 
 
 # ScreenSaver & ScreenLock
-case ${host} in
-    "leucas" | "caracal")
-        /usr/bin/xscreensaver -no-splash &
-        /usr/bin/xss-lock -- /usr/bin/xscreensaver-command --lock >/dev/null &
-        break ;;
-esac
+which xscreensaver && /usr/bin/xscreensaver -no-splash &
+which xss-lock && /usr/bin/xss-lock -- /usr/bin/xscreensaver-command --lock >/dev/null &
 
 
 # Wallpaper(random_change)
