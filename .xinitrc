@@ -49,7 +49,7 @@ xset b off
 
 # ScreenSaver & ScreenLock
 case ${host} in
-    "caracal" | "manul" )
+    "leucas" | "caracal")
         /usr/bin/xscreensaver -no-splash &
         /usr/bin/xss-lock -- /usr/bin/xscreensaver-command --lock >/dev/null &
         break ;;
