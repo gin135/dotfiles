@@ -32,12 +32,12 @@ static const Rule rules[] = {
 	{ "dia",         NULL,       NULL,       0,            True,        -1 },
 	{ "evilvte",     NULL,       NULL,       1 << 0,       False,       -1 },
 	{ "vivaldi",     NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "vivaldi-snapshot", NULL,  NULL,       1 << 1,       False,       -1 },
 	{ "chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
 	{ "slack",       NULL,       NULL,       1 << 2,       False,       -1 },
 	{ "gns3",        NULL,       NULL,       1 << 3,       False,       -1 },
 	{ "skype",       NULL,       NULL,       1 << 4,       True,        -1 },
 	{ "VirtualBox",  NULL,       NULL,       1 << 5,       True,        -1 },
-	{ "Google Chrome",      NULL,       NULL,       1 << 5,       False,       -1 },
 };
 
 /* layout(s) */
