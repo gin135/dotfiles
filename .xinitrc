@@ -36,7 +36,7 @@ fi
 ##############################
 
 # Display
-[ ${host} = "uralensis" ] && xrandr --output HDMI-2 --left-of HDMI-1 --auto
+source ~/.xinitrc_display
 
 # DPMS(Energy_Star)
 xset -dpms
