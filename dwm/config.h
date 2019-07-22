@@ -1,55 +1,50 @@
-/*                 NOTE                    */
-/* % yaourt -G dwm-xft                     */
-/* % makepkg -g >> PKGBUILD && makepkg -fi */
-
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char *fonts[]            = {"Migu 1M:size=13"};
-static const char dmenufont[]       = "Migu 1M:size=13";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar           = 1;     /* 0 means no bar */
-static const int topbar            = 1;     /* 0 means bottom bar */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const char *fonts[]          = {"Migu 1M:size=13"};
+static const char dmenufont[]       = "Migu 1M:size=13";
+static const char col_gray1[]       = "#222222";
+static const char col_gray2[]       = "#444444";
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#005577";
+static const char *colors[][3]      = {
+	/*               fg         bg         border   */
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+};
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6"};
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class         instance    title       tags mask     isfloating   monitor */
-	{ "feh" ,        NULL,       NULL,       0,            True,        -1 },
-	{ "dunst",       NULL,       NULL,       0,            True,        -1 },
-	{ "dia",         NULL,       NULL,       0,            True,        -1 },
-	{ "evilvte",     NULL,       NULL,       1 << 0,       False,       -1 },
-	{ "vivaldi",     NULL,       NULL,       1 << 1,       False,       -1 },
-	{ "vivaldi-snapshot", NULL,  NULL,       1 << 1,       False,       -1 },
-	{ "chromium",    NULL,       NULL,       1 << 1,       False,       -1 },
-	{ "slack",       NULL,       NULL,       1 << 2,       False,       -1 },
-	{ "gns3",        NULL,       NULL,       1 << 3,       False,       -1 },
-	{ "skype",       NULL,       NULL,       1 << 4,       True,        -1 },
-	{ "VirtualBox",  NULL,       NULL,       1 << 5,       True,        -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "feh" ,        NULL,       NULL,       0,            1,        -1 },
+	{ "dunst",       NULL,       NULL,       0,            1,        -1 },
+	{ "dia",         NULL,       NULL,       0,            1,        -1 },
+	{ "evilvte",     NULL,       NULL,       1 << 0,       0,       -1 },
+	{ "slack",       NULL,       NULL,       1 << 2,       0,       -1 },
+	{ "gns3",        NULL,       NULL,       1 << 3,       0,       -1 },
+	{ "skype",       NULL,       NULL,       1 << 4,       1,        -1 },
+	{ "VirtualBox",  NULL,       NULL,       1 << 5,       1,        -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
-static const float mfact      = 0.50; /* factor of master area size [0.05..0.95] */
-static const int nmaster      = 1;    /* number of clients in master area */
-static const int resizehints = 0; /* 1 means respect size hints in tiled resizals */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster     = 1;    /* number of clients in master area */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-//	{ "]T[",      tile },    /* first entry is default */
-//	{ "|F|",      NULL },    /* no layout function means floating behavior */
-//	{ "[M]",      monocle },
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
@@ -67,12 +62,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char prompt[]    = "Run:";
-static const unsigned int line_size  = 10;
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-p", prompt, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-p", prompt, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "evilvte", "-f", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -83,10 +75,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.025} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.025} },
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_w,      view,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
@@ -98,10 +89,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY,                       XK_n,      focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_n,      tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -115,7 +104,7 @@ static Key keys[] = {
 };
 
 /* button definitions */
-/* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
