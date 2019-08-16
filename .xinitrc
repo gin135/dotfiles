@@ -38,6 +38,9 @@ fi
 # Display
 source ~/.xinitrc_display
 
+# for Notification Daemon
+systemctl --user import-environment DISPLAY
+
 # DPMS(Energy_Star)
 xset -dpms
 # Beep
