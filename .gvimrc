@@ -4,17 +4,10 @@ set background=dark
 set guioptions=m
 
 if has('win32') || has('win64')
-    set guifont=Ricty:h14
+    set guifont=Migu\ 1M:h14
 else
-    set guifont=Ricty\ 14
+    set guifont=Migu\ 1M\ 14
 endif
-"set guifontwide=Ricty\ 14
-
-"set guifont=Droid\ Sans\ Mono\ 12
-"set guifontwide=Droid\ Sans\ Mono\ 12
-
-"set guifont=Dejavu\ Sans\ Mono\ 12
-"set guifontwide=Dejavu\ Sans\ Mono\ 12
 
 
 "マウス設定
@@ -31,7 +24,7 @@ set guiheadroom=-20
 "winpos 10 5
 "列・行数
 "set lines=36 columns=132
-set lines=36 columns=134
+set lines=40 columns=160
 
 
 
