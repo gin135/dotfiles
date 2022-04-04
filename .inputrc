@@ -1,6 +1,3 @@
-# フロー制御の無効化
-stty stop undef
-
 set completion-ignore-case on
 set bell-style none
 set editing-mode vi
