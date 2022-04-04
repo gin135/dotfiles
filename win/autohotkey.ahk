@@ -25,8 +25,8 @@ VKF4::Send,{``}
 
 ; 仮想デスクトップ用マッピング
 
-Alt & j::send {Alt down}{Tab down}{Alt up}{Tab up}
-Alt & k::send {Alt down}{Shift down}{Tab down}{Alt up}{Shift up}{Tab up}
+Alt & j::AltTab
+Alt & k::ShiftAltTab
 Alt & l::send {Ctrl down}{LWin down}{Right down}{Ctrl up}{LWin up}{Right up}
 Alt & h::send {Ctrl down}{LWin down}{Left down}{Ctrl up}{LWin up}{Left up}
 
