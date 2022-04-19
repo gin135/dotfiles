@@ -33,6 +33,9 @@ bgWhite='\[\e[0;47m\]'  # White
 
 export PATH=$PATH":$HOME/bin:$HOME/go/bin"
 which ruby >/dev/null 2>&1 && export PATH=$PATH":`ruby -e 'print Gem.user_dir'`/bin"
+# 重複削除
+export PATH=$(echo $PATH | tr ':' '\n' | awk '!path[$0]++' | tr '\n' ':' | sed 's/:*$//')
+
 export PAGER=$(which lv 2>/dev/null || which less)
 export MANPAGER=$(which lv 2>/dev/null || which less)
 export EDITOR=$(which vim 2>/dev/null || which vi)
