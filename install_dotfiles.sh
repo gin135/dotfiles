@@ -3,12 +3,10 @@
 file_list='
     .Xmodmap
     .gvimrc
-    .hgrc
     .inputrc
     .latexmkrc
     .mkshrc
     .profile
-    .todo.cfg
     .vimrc
     .xinitrc
     .bashrc
