@@ -164,9 +164,9 @@ function clip_out() {
     xclip -o -selection $sel
 }
 
-# 計算をするやつ
+# 簡易電卓
 function calc() {
-    echo "$*" | bc
+    awk "BEGIN{print $*}"
 }
 
 # CLI PDFビュワーもどき
