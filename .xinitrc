@@ -1,6 +1,6 @@
 #!/bin/sh
 
-host=$(hostname)
+host=$(cat /etc/hostname)
 
 ##############################
 # Input
@@ -10,8 +10,7 @@ host=$(hostname)
 [ -f $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 
 # Mouse_Speed
-## xinputで対応する
-# xset m 0 0
+#xset m 0 0
 
 # Key_Repeat
 xset r rate 300 40
@@ -22,13 +21,13 @@ export QT_IM_MODULE='uim'
 uim-xim &
 export XMODIFIERS='@im=uim'
 
-# Wacom
-if [ ${host} = "uralensis" ]; then
-    wacom_id = xsetwacom --list devices | grep stylus | grep -o 'id: [0-9]*' | awk '$0=$2'
-    primary_disp = xrandr | grep 'connected primary' | awk '$0=$1'
-
-    xsetwacom --set ${wacom_id} MapToOutput "${primary_disp}"
-fi
+## Wacom
+#if [ ${host} = "uralensis" ]; then
+#    wacom_id = xsetwacom --list devices | grep stylus | grep -o 'id: [0-9]*' | awk '$0=$2'
+#    primary_disp = xrandr | grep 'connected primary' | awk '$0=$1'
+#
+#    xsetwacom --set ${wacom_id} MapToOutput "${primary_disp}"
+#fi
 
 
 ##############################
@@ -36,7 +35,7 @@ fi
 ##############################
 
 # Display
-source ~/.xinitrc_display
+#source ~/.xinitrc_display
 
 # for Notification Daemon
 systemctl --user import-environment DISPLAY
@@ -53,14 +52,7 @@ which xss-lock && /usr/bin/xss-lock -- /usr/bin/xscreensaver-command --lock >/de
 
 
 # Wallpaper(random_change)
-case ${host} in
-    "leucas" | "caracal" )
-        wallpaper="wallpaper_animal"
-        ;;
-    *)
-        wallpaper="wallpaper_faves"
-        ;;
-esac
+wallpaper="wallpaper_animal"
 
 while true; do
     find ~/Dropbox/${wallpaper} -type f | grep -iE '[.](jpg|png)$' | shuf | head -n 1 | xargs feh --bg-fill
@@ -114,6 +106,13 @@ while true; do
     sleep 2
 done &
 
+
+
+##############################
+# etc
+##############################
+
+which dropbox && /usr/bin/dropbox &
 
 
 ##############################
