@@ -103,7 +103,7 @@ while true; do
 
     xsetroot -name "${cpu_used} (${cpu_governer})${sep}${mem_used}${sep}${ip}${batt}${date_full}"
 
-    sleep 2
+    sleep 1
 done &
 
 
