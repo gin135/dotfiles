@@ -445,6 +445,7 @@ set cmdheight=2
 set ruler
 "ビジュアルベルを使わない
 set vb t_vb=
+set belloff=all
 set novisualbell
 "新しいウィンドウを右に開く
 set splitright
