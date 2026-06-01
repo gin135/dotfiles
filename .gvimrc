@@ -2,9 +2,9 @@ set background=dark
 set guioptions=m
 
 if has('win32') || has('win64')
-    set guifont=Migu\ 1M:h14
+    set guifont=Migu\ 1M:h16
 else
-    set guifont=Migu\ 1M\ 14
+    set guifont=Migu\ 1M\ 16
 endif
 
 
@@ -21,4 +21,4 @@ set guiheadroom=-20
 "ウィンドウ位置
 "winpos 10 5
 "列・行数
-set lines=40 columns=160
+set lines=40 columns=170
